@@ -1,0 +1,61 @@
+<div id="content" class="grid_9">
+  <h1 class="page_title">Product List</h1>
+
+  <div class="options">
+   <div class="grid-list">
+   <a class="grid curent" [routerLink]="['./catalogGrid']" routerLinkActive="router-link-active" ><span>img</span></a>
+   <a class="list" [routerLink]="['./catalogList']" ><span>img</span></a>
+   </div><!-- .grid-list -->
+
+   <div class="show">
+    <span>Show</span>
+    <select title="Show">
+     <option>1</option>
+     <option>2</option>
+     <option>3</option>
+     <option>4</option>
+     <option>5</option>
+     <option>6</option>
+     <option>7</option>
+     <option>8</option>
+     <option>9</option>
+     <option>10</option>
+     <option>11</option>
+     <option>12</option>
+     </select>
+
+    <span class="per-page">per page</span>
+   </div><!-- .show -->
+
+   <div class="sort">
+    <span class="sort-by">Sort By</span>
+    <select>
+     <option>Position</option>
+     <option>Price</option>
+     <option>Rating</option>
+     <option>Name</option>
+     </select>
+
+    <a class="sort_up" href="#">&#8593;</a>
+   </div><!-- .sort -->
+  </div><!-- .options -->
+
+ <router-outlet></router-outlet>
+
+  <div class="clear"></div>
+
+  <div class="pagination">
+   <ul>
+    <li class="prev"><span>&#8592;</span></li>
+    <li class="curent"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><span>...</span></li>
+    <li><a href="#">100</a></li>
+    <li class="next"><a href="#">&#8594;</a></li>
+   </ul>
+  </div><!-- .pagination -->
+  <p class="pagination_info">Displaying 1 to 12 (of 100 products)</p>
+ </div><!-- #content -->
