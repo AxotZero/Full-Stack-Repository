@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-blog-postview',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-postview.component.css']
 })
 export class BlogPostviewComponent implements OnInit {
+  Arr = Array;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }
