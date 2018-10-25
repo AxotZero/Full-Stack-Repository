@@ -11,9 +11,6 @@ export class ServiceService {
   constructor() {
     for (let i = 0 ; i < 10; i++) {
       this.Products[i] = { imgsrc: 'images/product_' + (i + 1) + '.png' };
-<<<<<<< HEAD
-      // console.log(this.Products[i]); (debug purpose)
-=======
       this.Articles[i] = {
         title : 'Citrus Magic Solid Air Freshener',
         // tslint:disable-next-line:max-line-length
@@ -22,7 +19,6 @@ export class ServiceService {
         postTime: '03.11.2012',
         category: ['Sports', 'Movies']
       } ;
->>>>>>> d17e8ef59404163c3b1b0d05d70ee9e9b43b9e65
     }
   }
   changeIndex(i) {
