@@ -56,7 +56,7 @@ const routes: Routes = [
             component : TextPageComponent
           },
           {
-            path : 'product-view',
+            path : 'product-view/:i',
             component : ProductViewComponent
           }
         ]

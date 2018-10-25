@@ -10,9 +10,12 @@ export class IndexContentComponent implements OnInit {
   get Products() {
     return this.serviceService.Products;
   }
+
   constructor(private serviceService: ServiceService) {}
 
-
+  changeIndex(i) {
+    this.serviceService.changeIndex(i);
+  }
 
   ngOnInit() {
   }
