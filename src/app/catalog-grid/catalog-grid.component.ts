@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ServiceService } from '../service.service';
 @Component({
   selector: 'app-catalog-grid',
   templateUrl: './catalog-grid.component.html',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogGridComponent implements OnInit {
 
-  constructor() { }
+  get Products() {
+    return this.serviceService.Products;
+  }
+  constructor(private serviceService: ServiceService) {}
+
 
   ngOnInit() {
   }
