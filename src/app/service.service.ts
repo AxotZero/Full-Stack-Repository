@@ -11,6 +11,7 @@ export class ServiceService {
     console.log('hi');
     for (let i = 0 ; i < 10; i++) {
       this.Products[i] = { imgsrc: 'images/product_' + (i + 1) + '.png' };
+      // console.log(this.Products[i]); (debug purpose)
     }
   }
 }
