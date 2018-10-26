@@ -5,7 +5,7 @@
     <div class="grid_3 product" *ngIf="i >= Index * 5 && i < Index * 5 + 5">
      <img class="sale" src="images/new.png" alt="New"/>
      <div class="prev">
-      <a href="/product_page.html"><img [src]=item.imgsrc alt="" title="" /></a>
+      <a [routerLink]="['/catalog/product-page']" ><img [src]=item.imgsrc alt="" title="" /></a>
      </div><!-- .prev -->
      <h3 class="title">忍術名稱</h3>
      <div class="cart">
