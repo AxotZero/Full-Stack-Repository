@@ -1,4 +1,3 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { Injectable } from '@angular/core';
 
 @Injectable({

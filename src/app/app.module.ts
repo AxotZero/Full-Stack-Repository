@@ -50,8 +50,8 @@ import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

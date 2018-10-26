@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ServiceService } from '../service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-catalog-list',
   templateUrl: './catalog-list.component.html',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogListComponent implements OnInit {
 
-  constructor() { }
+  get Index() {
+    return this.route.snapshot.params['page'];
+  }
+  get Products() {
+    return this.serviceService.Products;
+  }
+  constructor(private serviceService: ServiceService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
   }

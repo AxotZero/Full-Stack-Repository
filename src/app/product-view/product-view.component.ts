@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -7,16 +8,18 @@ import { ServiceService } from '../service.service';
 })
 export class ProductViewComponent implements OnInit {
 
+  get Index() {
+    return this.route.snapshot.params['i'];
+  }
   get Products() {
     return this.serviceService.Products;
   }
-
-  get Index() {
-    return this.serviceService.Index;
-  }
-  constructor(private serviceService: ServiceService) {}
+  constructor(private serviceService: ServiceService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
   }
+
+
 
 }

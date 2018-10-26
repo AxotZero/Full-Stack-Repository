@@ -13,23 +13,13 @@
               <p><span>and receive good feedback from your clients.</span></p>
             </div>
           </div>
-
          <div class="slide">
-            <img src="images/content/slide2.jpg" alt="" title="" />
-            <div class="slid_text">
-              <h3 class="slid_title"><span>Flexibility</span></h3>
-              <p><span>Every product, which you are selling,</span></p>
-              <p><span>will look great with Breeze theme.</span></p>
-            </div>
+            <img src="images/content/slideX2.jpg" alt="" title="" />
           </div>
 
           <div class="slide">
-            <img src="images/content/slide3.jpg" alt="" title="" />
-            <div class="slid_text">
-              <h3 class="slid_title"><span>Accuracy and Easiness</span></h3>
-              <p><span>Breeze design is mere and accurate,</span></p>
-              <p><span>so it will satisfy everybody.</span></p>
-            </div>
+            <img src="images/content/slideX3.jpg" alt="" title="" />
+
           </div>
         </div><!-- .slider -->
         <div class="clear"></div>
@@ -129,6 +119,7 @@
         <div class="list_carousel">
         <ul id="list_product2" class="list_product">
             <ng-container *ngFor=" let item of Products; let i = index">
+<<<<<<< HEAD
           <li class="" *ngIf="i > 4">
             <div class="grid_3 product">
               <div class="prev">
@@ -149,6 +140,29 @@
             </div><!-- .grid_3 -->
           </li>
             </ng-container>
+=======
+                <li class="" *ngIf= "i > 4">
+                  <div class="grid_3 product">
+                    <img class="sale" src="images/sale.png" alt="Sale"/>
+                    <div class="prev">
+                      <a (click) = "changeIndex(i)" [routerLink]="[ '/catalog/product-view', i ]"><img [src]=item.imgsrc alt="" title="" /></a>
+                    </div><!-- .prev -->
+                    <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
+                    <div class="cart">
+                      <div class="price">
+                      <div class="vert">
+                        <div class="price_new">$550.00</div>
+                        <div class="price_old">$725.00</div>
+                      </div>
+                      </div>
+                      <a href="#" class="obn"></a>
+                      <a href="#" class="like"></a>
+                      <a href="#" class="bay"></a>
+                    </div><!-- .cart -->
+                  </div><!-- .grid_3 -->
+                </li>
+              </ng-container>
+>>>>>>> origin/NewBranch
 
 
         </ul><!-- #list_product2 -->

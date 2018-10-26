@@ -104,20 +104,45 @@
         <a class="menu-select" href="#">Catalog</a>
         <ul>
           <li class="curent"><a href="/">忍村</a></li>
-          <li><a [routerLink]="[ '/catalog' ]">幻術</a></li>
-          <li><a [routerLink]="[ '/catalog' ]">體術</a></li>
           <li class="parent">
-            <a href="#">忍術</a>
+              <a href="#">忍術</a>
+              <ul class="sub">
+                <li><a [routerLink]="[ '/catalog' ]">火遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">水遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">風遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">雷遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">土遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">非屬性忍術</a></li>
+              </ul>
+            </li>
+          <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">幻術</a></li>
+          <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">體術</a></li>
+          <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">通靈之術</a></li>
+          <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">封印之術</a></li>
+          <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">仙術</a></li>
+          <li class="parent">
+            <a href="#">血繼限界</a>
             <ul class="sub">
-              <li><a [routerLink]="[ '/catalog' ]">火遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">水遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">風遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">雷遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">土遁</a></li>
-            </ul>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">屬性融合</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">瞳術</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">血繼淘汰</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">血繼網羅</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 0  ]">其他</a></li>
+              </ul>
           </li>
-          <li><a [routerLink]="[ '/catalog' ]">Electric</a></li>
-          <li><a [routerLink]="[ '/catalog' ]">For cars</a></li>
+          <li class="parent">
+              <a href="#">依照術的等級</a>
+              <ul class="sub">
+                  <li><a [routerLink]="[ '/catalog' ]">S級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">A級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">B級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">C級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">D級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">E級</a></li>
+                  <li><a [routerLink]="[ '/catalog' ]">無等級</a></li>
+                </ul>
+            </li>
+
           <li class="parent">
             <a href="#">All pages</a>
             <ul class="sub">

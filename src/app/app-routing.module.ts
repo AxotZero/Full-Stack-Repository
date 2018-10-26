@@ -20,14 +20,17 @@ import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 const routes: Routes = [
   {
-    path : '',
-    component : LayoutComponent,
+    path : '', component : LayoutComponent,
     children : [
       { path : '',
         component : IndexContentComponent
       },
       { path : 'login',
         component : LoginComponent
+      },
+      {
+        path : 'register',
+        component : RegisterComponent
       },
       {
         path : 'catalog',
@@ -42,11 +45,11 @@ const routes: Routes = [
                 component : CatalogGridComponent
               },
               {
-                path : 'catalogGrid',
+                path : 'catalogGrid/:page',
                 component : CatalogGridComponent
               },
               {
-                path : 'catalogList',
+                path : 'catalogList/:page',
                 component : CatalogListComponent
               },
             ]
@@ -102,13 +105,24 @@ const routes: Routes = [
     ]
   },
   {
-    path : 'register',
-    component : RegisterComponent
+    path : 'register', component : RegisterComponent
+  },
+  {
+    path: '**',
+    component : LayoutComponent,
+    children : [
+      {
+        path : '',
+        component : NotFoundComponent
+      }
+    ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: true
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
