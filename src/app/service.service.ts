@@ -9,7 +9,7 @@ export class ServiceService {
   Index = 0;
   constructor() {
     for (let i = 0 ; i < 10; i++) {
-      this.Products[i] = { imgsrc: 'images/product_' + (i + 1) + '.png' };
+      this.Products[i] = { title : '忍術名稱', article : '忍術介紹' , imgsrc: 'images/product_' + (i + 1) + '.png' };
       this.Articles[i] = {
         title : 'Citrus Magic Solid Air Freshener',
         // tslint:disable-next-line:max-line-length
