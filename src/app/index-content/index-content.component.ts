@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
-import { switchMap } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-index-content',
   templateUrl: './index-content.component.html',
@@ -14,9 +13,7 @@ export class IndexContentComponent implements OnInit {
   }
 
   constructor(private serviceService: ServiceService) {}
-
   ngOnInit() {
-    this.changeIndex();
   }
   changeIndex() {
     window.document.body.scrollTop = 0;

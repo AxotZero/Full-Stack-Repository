@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class CatalogProductComponent implements OnInit {
 
   Active = 0;
+  pageActive = 1;
 
   constructor() { }
 
   ngOnInit() {
+  }
+  changeLink(i) {
+    if ( this.Active === 0) { return ['./catalogGrid', i]; }
+    return ['./catalogList', i];
   }
 
 }

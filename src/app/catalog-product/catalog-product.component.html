@@ -3,8 +3,8 @@
 
   <div class="options">
    <div class="grid-list">
-   <a [ngClass]="{grid: true, curent: Active === 0}" [routerLink]="['./catalogGrid']" (click)="Active=0" ><span>img</span></a>
-   <a [ngClass]="{list: true, curent: Active === 1}" [routerLink]="['./catalogList']" (click)="Active=1"><span>img</span></a>
+   <a [ngClass]="{grid: true, curent: Active === 0}" [routerLink]="['./catalogGrid', 0]" (click)="Active=0" ><span>img</span></a>
+   <a [ngClass]="{list: true, curent: Active === 1}" [routerLink]="['./catalogList', 0]" (click)="Active=1"><span>img</span></a>
    </div><!-- .grid-list -->
 
    <div class="show">
@@ -47,12 +47,12 @@
   <div class="pagination">
    <ul>
     <li class="prev"><span>&#8592;</span></li>
-    <li class="curent"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><span>...</span></li>
+    <li [ngClass]="{curent: pageActive === 1 }" (click)="pageActive=1"><a [routerLink]="changeLink(0)">1</a></li>
+    <li [ngClass]="{curent: pageActive === 2 }" (click)="pageActive=2"><a [routerLink]="changeLink(1)">2</a></li>
+    <li [ngClass]="{curent: pageActive === 3 }" (click)="pageActive=3"><a href="#">3</a></li>
+    <li [ngClass]="{curent: pageActive === 4 }" (click)="pageActive=4"><a href="#">4</a></li>
+    <li [ngClass]="{curent: pageActive === 5 }" (click)="pageActive=5"><a href="#">5</a></li>
+    <li ><span>...</span></li>
     <li><a href="#">100</a></li>
     <li class="next"><a href="#">&#8594;</a></li>
    </ul>
