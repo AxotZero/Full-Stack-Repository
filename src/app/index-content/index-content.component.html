@@ -80,7 +80,8 @@
             <div class="grid_3 product">
               <img class="sale" src="images/sale.png" alt="Sale"/>
               <div class="prev">
-                <a (click) = "changeIndex(i)" [routerLink]="[ '/catalog/product-view', i ]"><img [src]=item.imgsrc alt="" title="" /></a>
+                <a (click) = "changeIndex(i)"
+                [routerLink]="[ '/catalog/product-view', i ]"><img [src]=item.imgsrc alt="" title="" /></a>
               </div><!-- .prev -->
               <h3 class="title">Febreze Air Effects New Zealand Springs</h3>
               <div class="cart">
