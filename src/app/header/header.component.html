@@ -104,20 +104,30 @@
         <a class="menu-select" href="#">Catalog</a>
         <ul>
           <li class="curent"><a href="/">忍村</a></li>
+          <li class="parent">
+              <a href="#">忍術</a>
+              <ul class="sub">
+                <li><a [routerLink]="[ '/catalog' ]">火遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">水遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">風遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">雷遁</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">土遁</a></li>
+              </ul>
+            </li>
           <li><a [routerLink]="[ '/catalog' ]">幻術</a></li>
           <li><a [routerLink]="[ '/catalog' ]">體術</a></li>
+          <li><a [routerLink]="[ '/catalog' ]">通靈之術</a></li>
+          <li><a [routerLink]="[ '/catalog' ]">封印之術</a></li>
           <li class="parent">
-            <a href="#">忍術</a>
+            <a href="#">血繼限界</a>
             <ul class="sub">
-              <li><a [routerLink]="[ '/catalog' ]">火遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">水遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">風遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">雷遁</a></li>
-              <li><a [routerLink]="[ '/catalog' ]">土遁</a></li>
-            </ul>
+                <li><a [routerLink]="[ '/catalog' ]">屬性融合</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">瞳術</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">血繼淘汰</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">血繼網羅</a></li>
+                <li><a [routerLink]="[ '/catalog' ]">其他</a></li>
+              </ul>
           </li>
-          <li><a [routerLink]="[ '/catalog' ]">Electric</a></li>
-          <li><a [routerLink]="[ '/catalog' ]">For cars</a></li>
           <li class="parent">
             <a href="#">All pages</a>
             <ul class="sub">
