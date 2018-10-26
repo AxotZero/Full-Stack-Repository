@@ -23,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
     NotFoundComponent,
     BlogComponent,
     BlogPostsComponent,
-    BlogPostviewComponent
+    BlogPostviewComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,
