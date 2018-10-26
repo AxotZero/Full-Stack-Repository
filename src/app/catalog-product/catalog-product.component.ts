@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogProductComponent implements OnInit {
 
-  Active;
+  Active = 0;
 
-  constructor() { this.Active = 0; }
+  constructor() { }
 
   ngOnInit() {
   }
