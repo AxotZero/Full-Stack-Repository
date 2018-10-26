@@ -179,16 +179,16 @@ body{
 }
 /*** Grid < 410 ***/
 @media only screen and (max-width: 410px) {
-    .container_12 .grid_1, 
-    .container_12 .grid_2, 
-    .container_12 .grid_3, 
-    .container_12 .grid_4, 
-    .container_12 .grid_5, 
-    .container_12 .grid_6, 
-    .container_12 .grid_7, 
-    .container_12 .grid_8, 
-    .container_12 .grid_9, 
-    .container_12 .grid_10, 
+    .container_12 .grid_1,
+    .container_12 .grid_2,
+    .container_12 .grid_3,
+    .container_12 .grid_4,
+    .container_12 .grid_5,
+    .container_12 .grid_6,
+    .container_12 .grid_7,
+    .container_12 .grid_8,
+    .container_12 .grid_9,
+    .container_12 .grid_10,
     .container_12 .grid_11,
     .container_12 .grid_12{
          box-sizing:border-box;
@@ -285,7 +285,7 @@ body{
 
 *{
     padding:0;
-    margin:0; 
+    margin:0;
     border:0 none;
 }
 html, body, div, span, applet, object, iframe,
@@ -305,9 +305,9 @@ table, caption, tbody, tfoot, thead, tr, th, td{
     vertical-align: baseline;
     background: transparent;
 }
-article, aside, audio, canvas, command, datalist, 
-details, embed, figcaption, figure, footer, 
-header, hgroup, keygen, meter, nav, output, 
+article, aside, audio, canvas, command, datalist,
+details, embed, figcaption, figure, footer,
+header, hgroup, keygen, meter, nav, output,
 progress, section, source, video{
     display:block;
 }
@@ -628,7 +628,7 @@ body{
 .phone_top{
     padding: 0 0 0 24px;
     margin: 9px 0 0 0;
-    background: url(../images/bg_phone_top.png) no-repeat left center;
+    background: url(../images/symbol.jpeg) no-repeat left center;
     font: normal 11px/36px Segoeui, Arial, Verdana, serif;
 }
 .welcome{
@@ -668,7 +668,7 @@ body{
 .lang ul li.curent a{
     margin: 0px 0 0 1px;
     padding: 9px 0 0 0;
-    background: #59b7c2!important;
+    background: chocolate!important;
     color: #fff;
     text-decoration: none;
     font: bold 11px/36px Segoeui-Bold, Arial, Verdana, serif;
@@ -961,7 +961,7 @@ nav.private ul li a:hover{
         background: #f5f7f9;
     }
     .primary ul li a:hover,
-    .primary ul li:hover a, 
+    .primary ul li:hover a,
     .primary ul li a:active,
     .primary ul li:active a{
         border: 1px solid #c3d7e9;
@@ -977,7 +977,7 @@ nav.private ul li a:hover{
     .primary ul ul.sub{
         display: none;
     }
-    .primary ul li:hover > ul.sub, 
+    .primary ul li:hover > ul.sub,
     .primary ul li:active > ul.sub{
         display: block;
     }
@@ -1020,7 +1020,7 @@ nav.private ul li a:hover{
 #slider .slide {
     float: left;
     position: relative;
-}	
+}
 #slider .slide img {
     width: 100%;
     height: 100%;
@@ -3037,7 +3037,7 @@ a:hover.button_block{
     margin-left:0;
 }
 .carousel .c_header .grid_2{
-    margin-right:0; 
+    margin-right:0;
 }
 .carousel .c_header h2{
     margin: 9px 0 0 0;
@@ -3449,7 +3449,7 @@ list-style: none;
         background-image: none!important;
         padding: 0 0 0 5%;
     }
-    
+
     /**********
      * Slider *
      **********/
@@ -3474,7 +3474,7 @@ list-style: none;
     #top .grid_3~.grid_3{
         width: 29.5%;
     }
-    
+
     /**********
      * Header *
      **********/
@@ -3494,7 +3494,7 @@ list-style: none;
     li:hover .cart_li + ul.cart_cont{
         display: none;
     }
-    
+
     /******************
      * Content bottom *
      ******************/
@@ -3505,7 +3505,7 @@ list-style: none;
     form.letter_form #submit{
 	width: 9%;
     }
-    
+
     /************
      * Carousel *
      ************/
@@ -3525,7 +3525,7 @@ list-style: none;
 	margin-left: 10px;
         margin-right: 10px;
     }
-    
+
     /***********
      * Sidebar *
      ***********/
@@ -3551,7 +3551,7 @@ list-style: none;
         //height: auto;
         //margin-top: expression((50-parseInt(offsetHeight)/2)  <0 ? "0" : 50-(parseInt(offsetHeight)/2) +'px') ;
     }
-    
+
     /***********
      * Content *
      ***********/
@@ -3583,7 +3583,7 @@ list-style: none;
     .listing_product .product_li .cart a.like{
         margin: 0;
     }
-    
+
     /****************
      * Product page *
      ****************/
@@ -3626,7 +3626,7 @@ list-style: none;
         padding: 0 5px;
     }
     /*** Comments ***/
-    .add_comments .nickname, 
+    .add_comments .nickname,
     .add_comments .your_review{
         width: 46%;
     }
@@ -3654,7 +3654,7 @@ list-style: none;
     .related .caroufredsel_wrapper{
         margin: 0 auto!important;
     }
-    
+
     /************
      * Checkout *
      ************/
@@ -3677,7 +3677,7 @@ list-style: none;
      * Contact Us *
      **************/
     form.contact .name,
-    form.contact .email, 
+    form.contact .email,
     form.contact .phone{
         width: 46%;
     }
@@ -3700,7 +3700,7 @@ list-style: none;
         display: inline-block;
         margin: 0px 0 10px 20px;
     }
-    
+
     /*****************
      * Shopping Cart *
      *****************/
@@ -3759,7 +3759,7 @@ list-style: none;
         overflow: hidden;
         width: 228px;
     }
-    
+
     /**********
      * Header *
      **********/
@@ -3800,7 +3800,7 @@ list-style: none;
     .slid_text p span{
         font-size: 14px;
     }
-    
+
     /**************
      * Top button *
      **************/
@@ -3813,7 +3813,7 @@ list-style: none;
         display: inline-block;
         margin: 0 10px 10px;
     }
-    
+
     /********
      * Main *
      ********/
@@ -3852,7 +3852,7 @@ list-style: none;
         margin-right: 1%;
         width: 68%;
     }
-    
+
     /***********
      * Sidebar *
      ***********/
@@ -3865,7 +3865,7 @@ list-style: none;
     .specials li .cont{
         display: block;
     }
-    
+
     /*** newsletter_signup ***/
     #newsletter_signup .newsletter .your_email{
         padding: 0 2%;
@@ -3888,7 +3888,7 @@ list-style: none;
         //height: auto;
         //margin-top: expression((50-parseInt(offsetHeight)/2)  <0 ? "0" : 50-(parseInt(offsetHeight)/2) +'px') ;
     }
-    
+
     /***********
      * Content *
      ***********/
@@ -3939,7 +3939,7 @@ list-style: none;
         margin: 0 auto 10px;
         border: 0 none;
     }
-    
+
     /****************
      * Product page *
      ****************/
@@ -4000,7 +4000,7 @@ list-style: none;
     .related .c_header h2 {
         font-size: 20px;
     }
-    
+
     /*****************
      * Shopping Cart *
      *****************/
@@ -4019,7 +4019,7 @@ list-style: none;
     table.cart_product .close{
         width: 20px;
     }
-    
+
     /**************
      * Contact Us *
      **************/
@@ -4041,7 +4041,7 @@ list-style: none;
         float: left;
         margin: 20px 0 0 0;
     }
-    
+
     /******************
      * Content bottom *
      ******************/
@@ -4062,8 +4062,8 @@ list-style: none;
     #content_bottom.shopping_box .grid_4+.grid_4{
         float: right;
     }
-    
-    
+
+
     /************
      * Carousel *
      ************/
@@ -4118,7 +4118,7 @@ list-style: none;
     .f_info .grid_6{
         width: 45%;
     }
-    
+
     /**************
      * form_style *
      **************/
@@ -4146,7 +4146,7 @@ list-style: none;
 }
 
 @media only screen and (max-width: 664px) {
-    .shopping-cart, 
+    .shopping-cart,
     .compare{
         display: inline-block;
         max-width: 664px;
@@ -4154,7 +4154,7 @@ list-style: none;
     body{
         overflow-x: visible;
     }
-    
+
     /***********
      * Sidebar *
      ***********/
@@ -4170,7 +4170,7 @@ list-style: none;
         margin: 0 ;
         padding: 0;
     }
-    
+
     /*** specials ***/
     .specials li .prev{
         display: table-cell;
@@ -4182,7 +4182,7 @@ list-style: none;
     .specials li .cont{
         display: table-cell;
     }
-    
+
     /*** banners ***/
     #banners .banner {
         width: 226px;
@@ -4192,7 +4192,7 @@ list-style: none;
         width: 226px;
         height: 130px;
     }
-    
+
     /***********
      * Content *
      ***********/
@@ -4210,7 +4210,7 @@ list-style: none;
     .options .grid-list a.list.curent{
         display: block;
     }
-    
+
     /****************
      * Product page *
      ****************/
@@ -4218,28 +4218,28 @@ list-style: none;
     .related .list_carousel .caroufredsel_wrapper {
         margin: 0 auto!important;
     }
-    
+
     /************
      * Page-404 *
      ************/
     .left_404 h1.text_404{
         font: bold 90px/65px Bitter-Bold, Myriad Pro, Verdana, serif;
     }
-    
+
     /*****************
      * Shopping Cart *
      *****************/
     table.cart_product td.images {
         padding: 10px 5px 10px 0;
     }
-    
+
     /********************
      * Compare Products *
      ********************/
     table.compare td{
         padding: 15px 10px;
     }
-    
+
     /**************
      * Login page *
      **************/
@@ -4253,11 +4253,11 @@ list-style: none;
     form.registed .submit{
         margin: 30px 0 0 0;
     }
-    
+
     /******************
      * Content bottom *
      ******************/
-    #content_bottom.shopping_box .grid_4, 
+    #content_bottom.shopping_box .grid_4,
     #content_bottom.shopping_box .grid_4+.grid_4{
         display: block;
         float: none;
@@ -4273,7 +4273,7 @@ list-style: none;
     .slid_text p{
         display: none;
     }
-    
+
     /*****************
      * Sidebar right *
      *****************/
@@ -4281,7 +4281,7 @@ list-style: none;
         overflow: hidden;
         width: 0;
     }
-    
+
     /***********
      * Content *
      ***********/
@@ -4290,14 +4290,14 @@ list-style: none;
     .options .show .per-page{
         display: none;
     }
-    
+
     /*****************
      * Shopping Cart *
      *****************/
     table.cart_product td.name{
         min-width: 100px;
     }
-    
+
     /**************
      * Login page *
      **************/
@@ -4306,21 +4306,21 @@ list-style: none;
         margin-right: 0;
         width: 100%;
     }
-    
+
     /**************
      * Contact Us *
      **************/
-    .contact-page #main.entire_width #content .grid_4, 
+    .contact-page #main.entire_width #content .grid_4,
     .contact-page #main.entire_width #content .grid_8{
         margin-left:0;
         margin-right: 0;
         width: 100%;
     }
-    
+
     /************
      * Page-404 *
      ************/
-    #main.page-404 #content .grid_4.left_404, 
+    #main.page-404 #content .grid_4.left_404,
     #main.page-404 #content .grid_8{
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -4331,14 +4331,14 @@ list-style: none;
         padding-right: 1%;
         width: 100%;
     }
-    
+
     /************
      * Checkout *
      ************/
     ul.checkout_list li.active .list_body form{
         width: 100%;
     }
-    ul.checkout_list li.active .list_body form.login input[type="text"], 
+    ul.checkout_list li.active .list_body form.login input[type="text"],
     ul.checkout_list li.active .list_body form.login input[type="email"]{
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -4367,7 +4367,7 @@ list-style: none;
      * Top *
      *******/
     .phone_top{
-        background: url(../images/bg_phone_top.png) no-repeat 10px 50% #e6e9ed;
+        background: url(../images/symbol.jpeg) no-repeat 10px 50% #e6e9ed;
         cursor: pointer;
         height: 36px;
         padding: 0 0 0 36px;
@@ -4377,7 +4377,7 @@ list-style: none;
         background: #f5f7f9;
         display: block;
         height: 36px;
-        padding-left: 5px; 
+        padding-left: 5px;
         width: 0;
         overflow: hidden;
     }
@@ -4396,7 +4396,7 @@ list-style: none;
         float: none;
         margin: 40px 0 35px 0;
     }
-    
+
     /**********
      * Header *
      **********/
@@ -4417,7 +4417,7 @@ list-style: none;
     #myController{
         display: none;
     }
-    
+
     /**************
      * Top button *
      **************/
@@ -4426,14 +4426,14 @@ list-style: none;
         margin-right: 0;
         width: 310px;
     }
-    
+
     /************
      * Carousel *
      ************/
     .carousel .c_header{
         margin: 0 1% 42px;
     }
-    
+
     /***********
      * Content *
      ***********/
@@ -4443,7 +4443,7 @@ list-style: none;
     .sort .selectBox{
         width: 75px;
     }
-    .pagination li a, 
+    .pagination li a,
     .pagination li span{
         padding: 0 10px;
     }
@@ -4481,11 +4481,11 @@ list-style: none;
     .listing_product .product_li .cart a.like{
         border-left: 1px solid #e0e0e0;
     }
-    
+
     /************
      * Checkout *
      ************/
-    .checkout #main #content .grid_3, 
+    .checkout #main #content .grid_3,
     .checkout #main #content .grid_9{
         margin-left: 0;
         margin-right: 0;
@@ -4495,14 +4495,14 @@ list-style: none;
         overflow: hidden;
         width: auto;
     }
-    
+
     /******************
      * Content bottom *
      ******************/
     #content_bottom.shopping_box .grid_4{
         width: 312px;
     }
-    
+
     /**********
      * footer *
      **********/
@@ -4515,11 +4515,11 @@ list-style: none;
     .soc{
         display: none;
     }
-    
+
     /**************
      * form_style *
     **************/
-    .form_style .grid_2, 
+    .form_style .grid_2,
     .form_style .grid_3{
        width: 100%;
    }
@@ -4562,7 +4562,7 @@ list-style: none;
     #wrapper_tab a.tab_link{
         padding: 0 10px;
     }
-    .add_comments .nickname input, 
+    .add_comments .nickname input,
     .add_comments .your_review input{
         width: 282px;
     }
@@ -4588,7 +4588,7 @@ list-style: none;
         background: #f5f7f9;
     }
     .primary ul li a:hover,
-    .primary ul li:hover a, 
+    .primary ul li:hover a,
     .primary ul li a:active,
     .primary ul li:active a{
         border: 1px solid #c3d7e9;
@@ -4604,7 +4604,7 @@ list-style: none;
     .primary ul ul.sub{
         display: none;
     }
-    .primary ul li:hover > ul.sub, 
+    .primary ul li:hover > ul.sub,
     .primary ul li:active > ul.sub{
         display: block;
     }
@@ -4656,7 +4656,7 @@ list-style: none;
     background: #f5f7f9;
 }
 *+html .primary ul li a:hover,
-*+html .primary ul li:hover a, 
+*+html .primary ul li:hover a,
 *+html .primary ul li a:active,
 *+html .primary ul li:active a{
     border: 1px solid #c3d7e9;
@@ -4672,7 +4672,7 @@ list-style: none;
 *+html .primary ul ul.sub{
     display: none;
 }
-*+html .primary ul li:hover > ul.sub, 
+*+html .primary ul li:hover > ul.sub,
 *+html .primary ul li:active > ul.sub{
     display: block;
 }
