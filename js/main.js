@@ -6,7 +6,7 @@ $(function() {
 });
 
 
-//Carousel 
+//Carousel
 $(function() {
     $("#slider").carouFredSel({
         prev: '.slidprev',
@@ -22,8 +22,8 @@ $(function() {
         swipe: {
             onMouse: true,
             onTouch: true
-	}
-    }); 
+}
+    });
     $('#list_product').carouFredSel({
         prev: '#prev_c1',
         next: '#next_c1',
@@ -69,7 +69,7 @@ $(function() {
 });
 
 //Zoomer
-$(function() { 
+$(function() {
    $('.jqzoom').jqzoom({
         zoomType: is_touch_device() ? 'innerzoom' : 'standard',
         lens:true,
@@ -89,7 +89,7 @@ $(function() {
 });
 
 //Primary menu(media < 984)
-$(function(){        
+$(function(){
     $('.primary .menu-select').toggle(function(){
         $('.primary > ul').slideDown('slow');
 	$(this).addClass('minus');}
@@ -97,7 +97,7 @@ $(function(){
 	$('.primary > ul').slideUp('slow');
 	$(this).removeClass('minus');
     });
-    
+
     $('.primary .parent > a').toggle(function(){
         $(this).next('ul.sub').slideDown('slow');
 	$(this).parent('.parent').addClass('minus');}
@@ -121,13 +121,13 @@ $(function(){
     });
 });
 
-function is_touch_device() {  
-    try {  
-        document.createEvent("TouchEvent");  
-        return true;  
-    } catch (e) {  
-        return false;  
-    }  
+function is_touch_device() {
+    try {
+        document.createEvent("TouchEvent");
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
 
 });

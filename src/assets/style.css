@@ -970,8 +970,8 @@ nav.private ul li a:hover{
     }
     .primary ul li.curent a{
         color: #fff;
-        background: #78c4cd;
-        border: 1px solid #6fb7bf;
+        background: chocolate;
+        border: 1px solid chocolate;
     }
 
     .primary ul ul.sub{
