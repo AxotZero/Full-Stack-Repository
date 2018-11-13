@@ -7,28 +7,15 @@
     </div><!-- .grid_3 -->
 
     <div class="grid_6">
-      <div class="welcome">
+      <div class="welcome" *ngIf="!isLogin">
         Welcome Ninja you can <a [routerLink]="[ '/login' ]">login</a> or <a [routerLink]="[ '/register' ]">create an account</a>.
+      </div><!-- .welcome -->
+      <div class="welcome" *ngIf="isLogin">
+        Welcome Ninja ~ ! Ready for being a Hokage?
       </div><!-- .welcome -->
     </div><!-- .grid_6 -->
 
-    <div class="grid_3">
-      <div class="valuta">
-        <ul>
-          <li class="curent"><a href="#">$</a></li>
-          <li><a href="#">&#8364;</a></li>
-          <li><a href="#">&#163;</a></li>
-        </ul>
-      </div><!-- .valuta -->
 
-      <div class="lang">
-        <ul>
-          <li class="curent"><a href="#">EN</a></li>
-          <li><a href="#">FR</a></li>
-          <li><a href="#">GM</a></li>
-        </ul>
-      </div><!-- .lang -->
-    </div><!-- .grid_3 -->
   </div><!-- #top -->
 
   <div class="clear"></div>
@@ -83,12 +70,18 @@
       <nav class="private">
         <ul>
           <li><a href="#">My Account</a></li>
-  <li class="separator">|</li>
+          <li class="separator">|</li>
           <li><a href="#">My Wishlist</a></li>
-  <li class="separator">|</li>
-          <li><a [routerLink]="[ '/login' ]">Log In</a></li>
-  <li class="separator">|</li>
-          <li><a [routerLink]="[ '/register' ]">Sign Up</a></li>
+          <span *ngIf="!isLogin">
+            <li class="separator">|</li>
+            <li><a [routerLink]="[ '/login' ]" style="cursor: pointer;">Log In</a></li>
+            <li class="separator">|</li>
+            <li><a [routerLink]="[ '/register' ]" style="cursor: pointer;">Sign Up</a></li>
+          </span>
+          <span *ngIf="isLogin">
+            <li class="separator">|</li>
+            <li><a (click)="logout()" style="cursor: pointer;">Log Out</a></li>
+          </span>
         </ul>
       </nav><!-- .private -->
     </div><!-- .grid_6 -->
@@ -103,7 +96,7 @@
       <nav class="primary">
         <a class="menu-select" href="#">Catalog</a>
         <ul>
-          <li class="curent"><a href="/">忍村</a></li>
+          <li class="curent"><a [routerLink]="['/']">忍村</a></li>
           <li class="parent">
               <a href="#">忍術</a>
               <ul class="sub">

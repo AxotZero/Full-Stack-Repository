@@ -8,21 +8,21 @@ $(function() {
 
 //Carousel
 $(function() {
-    $("#slider").carouFredSel({
+    $('#slider').carouFredSel({
         prev: '.slidprev',
         next: '.slidnext',
         responsive	: true,
         pagination  : '#myController',
         scroll: 1,
-	items		: {
-		visible		: 1,
-		width		: 870,
-		height		: "46%"
-	},
+        items		: {
+          visible		: 1,
+          width		: 870,
+          height		: '46%'
+        },
         swipe: {
             onMouse: true,
             onTouch: true
-}
+        }
     });
     $('#list_product').carouFredSel({
         prev: '#prev_c1',
@@ -32,7 +32,7 @@ $(function() {
         swipe: {
             onMouse: true,
             onTouch: true
-	}
+	      }
     });
     $('#list_product2').carouFredSel({
         prev: '#prev_c2',
@@ -42,7 +42,7 @@ $(function() {
         swipe: {
             onMouse: true,
             onTouch: true
-	}
+	      }
     });
     $('#list_banners').carouFredSel({
         prev: '#ban_prev',
@@ -63,7 +63,7 @@ $(function() {
         swipe: {
             onMouse: true,
             onTouch: true
-	}
+	      }
     });
     $(window).resize();
 });

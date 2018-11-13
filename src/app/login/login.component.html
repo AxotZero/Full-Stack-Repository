@@ -20,12 +20,12 @@
 
 				<div class="User">
 					<strong>Your Name:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="" class="" value="" />
+					<input type="email" name="email" class="" value="" [(ngModel)]="user.email"/>
 				</div><!-- .email -->
 
 				<div class="password">
 					<strong>Password:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="" class="" value="" />
+					<input type="text" name="password" class="" value="" [(ngModel)]="user.password"/>
 					<a class="forgot" href="#">Forgot Your Password?</a>
 				</div><!-- .password -->
 
@@ -35,7 +35,7 @@
 				</div><!-- .remember -->
 
 				<div class="submit">
-					<input type="submit" value="Login" />
+					<input type="submit" value="Login" (click)="login()"/>
 					<sup class="surely">*</sup><span>Required Field</span>
 				</div><!-- .submit -->
 			</form><!-- .registed -->

@@ -23,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

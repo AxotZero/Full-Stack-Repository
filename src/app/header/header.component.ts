@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  get isLogin() {
+    return this.authService.isLogin();
   }
 
+  constructor(private authService: AuthService, private router: Router, private dataService: DataService) {}
+
+  ngOnInit() {}
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  checkout() {
+    this.dataService.createOrder([2, 4]).subscribe(data => {
+      console.log(data);
+      alert('checkout success');
+    }, (response) => {
+      if (response.status === 401) {
+        alert('please login');
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 }

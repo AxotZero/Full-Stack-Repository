@@ -1,17 +1,17 @@
 <div id="content" class="grid_9">
     <h1 class="page_title">Our Blog</h1>
 
-    <ng-container *ngFor="let item of Articles">
+    <ng-container *ngFor="let item of articles">
     <article class="post">
-      <h2 class="title_article"><a href="/blog_post.html">{{item.title}}</a></h2>
+      <h2 class="title_article"><a href="/blog_post.html">{{item.name}}</a></h2>
       <div class="content_article">
-        <p>{{item.article}}</p>
+        <p>{{item.description}}</p>
       </div><!-- .content_article -->
       <div class="footer_article">
         <div class="number_c">3</div>
         <span>{{item.author}},
-          <time datetime="2012-11-03">{{item.postTime}}</time>
-        </span>  |  <span>Posted in <a href="#">{{item.category[0]}}</a>
+          <time datetime="2012-11-03"></time>
+        </span>  |  <span>Posted in <a href="#">{{item.updated_at}}</a>
           <ng-container *ngFor="let x of item.category; let i = index">
             , <a href="#" *ngIf="i > 0">{{x}}</a>
           </ng-container></span>

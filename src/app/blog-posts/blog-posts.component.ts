@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service.service';
+import { DataService } from '../data.service';
+import { Product } from '../products';
+
 @Component({
   selector: 'app-blog-posts',
   templateUrl: './blog-posts.component.html',
@@ -7,12 +9,17 @@ import { ServiceService } from '../service.service';
 })
 export class BlogPostsComponent implements OnInit {
 
-  get Articles() {
-    return this.serviceService.Articles;
-  }
-  constructor(private serviceService: ServiceService) {}
+  articles: Product[];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    console.log('ngOnInit');
+    this.dataService.getProducts()
+      .subscribe((data: Product[]) => {
+        this.articles = data;
+        console.log(data);
+      });
   }
 
 }
