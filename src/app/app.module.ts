@@ -24,6 +24,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     BlogComponent,
     BlogPostsComponent,
-    BlogPostviewComponent
+    BlogPostviewComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
