@@ -11,7 +11,13 @@ export class BlogPostsComponent implements OnInit {
 
   articles: Product[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+    this.dataService.getProducts()
+      .subscribe((data: Product[]) => {
+        this.articles = data;
+        console.log(data);
+      });
+   }
 
   ngOnInit() {
     console.log('ngOnInit');

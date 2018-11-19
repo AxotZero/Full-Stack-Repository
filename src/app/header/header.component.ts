@@ -23,6 +23,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  changeCategory(n) {
+    this.dataService.ChangeCategory(n);
+  }
+
   checkout() {
     this.dataService.createOrder([2, 4]).subscribe(data => {
       console.log(data);

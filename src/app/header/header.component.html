@@ -31,7 +31,7 @@
     <div class="grid_3">
       <form class="search">
         <input type="text" name="search" class="entry_form" value="" placeholder="Search entire store here..."/>
-</form>
+      </form>
     </div><!-- .grid_3 -->
 
     <div class="grid_6">
@@ -100,12 +100,12 @@
           <li class="parent">
               <a href="#">忍術</a>
               <ul class="sub">
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">火遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">水遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">風遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">雷遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">土遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">非屬性忍術</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 1, 0 ]" (click) = "ChangeCategory(1)">火遁</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 2, 0 ]" (click) = "ChangeCategory(2)">水遁</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 3, 0 ]" (click) = "ChangeCategory(3)">風遁</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 4, 0 ]" (click) = "ChangeCategory(4)">雷遁</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 5, 0 ]" (click) = "ChangeCategory(5)">土遁</a></li>
+                <li><a [routerLink]="[ '/catalog/catalogGrid', 6, 0 ]" (click) = "ChangeCategory(6)">非屬性忍術</a></li>
               </ul>
             </li>
           <li><a [routerLink]="[ '/catalog/catalogGrid', 0 ]">幻術</a></li>

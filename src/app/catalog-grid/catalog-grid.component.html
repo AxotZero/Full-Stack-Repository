@@ -2,12 +2,12 @@
 
 
 <ng-container *ngFor="let item of Products; let i = index">
-    <div class="grid_3 product" *ngIf="i >= Index * 5 && i < Index * 5 + 5">
+    <div class="grid_3 product">
      <img class="sale" src="images/new.png" alt="New"/>
      <div class="prev">
-      <a [routerLink]="['/catalog/product-view', i]" ><img [src]=item.imgsrc alt="" title="" style="width:100%"/></a>
+      <a [routerLink]="['/catalog/product-view', i]" ><img src="images/product_6.png" alt="" title="" style="width:100%"/></a>
      </div><!-- .prev -->
-     <h3 class="title">忍術名稱</h3>
+     <h3 class="title">{{item.name}}</h3>
      <div class="cart">
       <div class="price">
        <div class="vert">
@@ -18,7 +18,7 @@
       <a href="#" class="obn"></a>
       <a href="#" class="like"></a>
       <a href="#" class="bay"></a>
-     </div><!-- .cart -->
+    </div>
     </div><!-- .grid_3 -->
 </ng-container>
    <div class="clear"></div>
