@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
   }
 
   changeCategory(n) {
+    window.document.body.scrollTop = 0;
+    window.document.documentElement.scrollTop = 0;
     this.dataService.ChangeCategory(n);
   }
 

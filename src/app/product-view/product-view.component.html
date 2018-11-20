@@ -1,5 +1,5 @@
 <div id="content" class="grid_9">
-  <h1 class="page_title">Candles Orange Vanilla</h1>
+  <h1 class="page_title">{{Product.name}}</h1>
 
 <div class="product_page">
 <div class="grid_4 img_slid" id="products">
@@ -7,7 +7,7 @@
   <div class="preview slides_container">
     <div class="prev_bg" style="vertical-align: auto">
       <a class="jqzoom" rel="gal1" href="images/produkt_slid.png">
-        <img [src]=Products[Index].imgsrc   title="" alt="" style="width:100%"/>
+        <img src="images/product_4.png"   title="" alt="" style="width:100%"/>
       </a>
     </div>
   </div><!-- .prev -->
@@ -37,7 +37,7 @@
       <span>1 REVIEW(S)</span>
       <a class="add_review" href="#">ADD YOUR REVIEW</a>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra faucibus congue. Aenean luctus dolor et purus malesuada luctus. Quisque ullamcorper ante viverra lectus fermentum quis rutrum erat sollicitudin. Fusce tortor massa.</p>
+    <p>{{Product.description}}</p>
     <div class="ava_price">
       <div class="availability_sku">
         <div class="availability">

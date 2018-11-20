@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
 declare let $: any;
 
 @Component({
@@ -10,6 +11,8 @@ declare let $: any;
 })
 export class ProductViewComponent implements OnInit {
 
+  Product;
+
   get Index() {
     return this.route.snapshot.params['i'];
   }
@@ -17,7 +20,14 @@ export class ProductViewComponent implements OnInit {
     return this.serviceService.Products;
   }
   constructor(private serviceService: ServiceService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              public dataService: DataService) {
+
+    this.dataService.getProduct(this.Index).subscribe(data => {
+      this.Product = data;
+    });
+
+  }
 
   ngOnInit() {
     setTimeout(() => {

@@ -31,14 +31,6 @@ export class CatalogGridComponent implements OnInit {
     console.log(this.attribute);
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
-
-    // setTimeout(() => {
-    //   const attrPro = this.dataService.FullProducts.filter(
-    //     data => String(data.category_id) === this.attribute);
-    //   for (let i = 0; i < 5; i++) {
-    //      this.Products[i] = attrPro[i];
-    //    }
-    // }, 500);
   }
 
   ngOnInit() {
@@ -47,22 +39,5 @@ export class CatalogGridComponent implements OnInit {
   }
 
   Page(index) {
-
-
-    // if (this.dataService.FullProducts.length === 0) {
-    //   setTimeout(() => {
-    //     const attrPro = this.dataService.FullProducts.filter(
-    //       data => String(data.category_id) === this.attribute) ;
-    //      for (let i = 0; i < 5; i++) {
-    //        this.Products[i] = attrPro[i];
-    //      }
-    //     }, 300);
-    // } else {
-    //   const attrPro = this.dataService.FullProducts.filter(
-    //     data => String(data.category_id) === this.attribute);
-    //   for (let i = 0; i < 5; i++) {
-    //      this.Products[i] = attrPro[i];
-    //   }
-    // }
   }
 }

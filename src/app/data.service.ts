@@ -15,19 +15,18 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => this.FullProducts = data);
-
+    console.log('constructor');
     if ( this.CategoryProducts.length === 0) {
       setTimeout( () => {
         this.CategoryProducts = this.FullProducts.filter(data =>
-          String(data.category_id) === String(this.Category) );
-          setTimeout( () => {this.ShowProducts(); }, 300) ;
+          Number(data.category_id) === Number(this.Category) );
+          setTimeout( () => { this.ShowProducts(); }, 200) ;
       }, 500);
     } else {
       this.CategoryProducts = this.FullProducts.filter(data =>
-        String(data.category_id) === String(this.Category) );
+        Number(data.category_id) === Number(this.Category) );
+        this.ShowProducts();
     }
-
-
   }
 
   getProducts() {
@@ -50,6 +49,7 @@ export class DataService {
   }
 
   ChangeCategory(num) {
+    console.log('change Category');
     this.Category = num;
     this.CategoryProducts = this.FullProducts.filter(data => data.Category === num );
     this.ShowProducts();
@@ -62,18 +62,17 @@ export class DataService {
 
   ShowProducts() {
      console.log(this.Category + ' ' + this.Page);
-    // console.log( this.CategoryProducts);
-    // console.log(this. FullProducts);
-    for (let i = 0; i < 5; i++) {
-      this.GridProducts[i] = this.CategoryProducts[Number(this.Page) * 5 + i];
-    }
+    this.GridProducts = [];
+    this.ListProducts = [];
     for (let i = 0; i < 9; i++) {
-      this.ListProducts[i] = this.CategoryProducts[Number(this.Page) * 9 + i];
+      if (Number(this.Page) * 9 + i < this.CategoryProducts.length) {
+        this.GridProducts[i] = this.CategoryProducts[Number(this.Page) * 5 + i];
+      }
+    }
+    for (let i = 0; i < 5; i++) {
+      if (Number(this.Page) * 5 + i < this.CategoryProducts.length) {
+        this.ListProducts[i] = this.CategoryProducts[Number(this.Page) * 9 + i];
+      }
     }
   }
-
-  // search(keyword) {
-  //   console.log('hey');
-  //   this.article = this.FullArticle.filter(article => article.title.indexOf(keyword) !== -1);
-  // }
 }
