@@ -30,7 +30,9 @@
 
     <div class="grid_3">
       <form class="search">
-        <input type="text" name="search" class="entry_form" value="" placeholder="Search entire store here..."/>
+        <input type="text" name="search" class="entry_form" value=""
+        placeholder="Search entire store here..." [(ngModel)]="searchElement"
+        (keydown.Enter)="search(searchElement)"/>
       </form>
     </div><!-- .grid_3 -->
 

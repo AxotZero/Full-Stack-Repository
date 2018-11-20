@@ -50,9 +50,10 @@ export class DataService {
 
   ChangeCategory(num) {
     console.log('change Category');
-    this.Category = num;
-    this.CategoryProducts = this.FullProducts.filter(data => data.Category === num );
-    this.ShowProducts();
+    // this.Category = num;
+    this.CategoryProducts = this.FullProducts.filter(data =>
+      Number(data.Category) === Number(num) );
+    setTimeout(() => { this.ShowProducts(); } , 200);
   }
 
   ChangePage(num) {
@@ -75,4 +76,10 @@ export class DataService {
       }
     }
   }
+  search(n) {
+    this.CategoryProducts = this.FullProducts.filter(data =>
+      data.name.indexOf(n) !== -1 || data.description.indexOf(n) !== -1);
+      setTimeout(() => { this.ShowProducts(); } , 200);
+  }
+
 }

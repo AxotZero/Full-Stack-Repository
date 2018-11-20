@@ -28,7 +28,6 @@ export class CatalogGridComponent implements OnInit {
               private route: ActivatedRoute,
               public dataService: DataService) {
 
-    console.log(this.attribute);
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
   }

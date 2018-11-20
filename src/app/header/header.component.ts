@@ -10,6 +10,8 @@ import { DataService } from '../data.service';
 })
 export class HeaderComponent implements OnInit {
 
+  searchElement = '';
+
   get isLogin() {
     return this.authService.isLogin();
   }
@@ -26,7 +28,8 @@ export class HeaderComponent implements OnInit {
   changeCategory(n) {
     window.document.body.scrollTop = 0;
     window.document.documentElement.scrollTop = 0;
-    this.dataService.ChangeCategory(n);
+    // this.router.navigate(['/catalog/catalogGrid/', n, 0]);
+    // this.dataService.ChangeCategory(n);
   }
 
   checkout() {
@@ -39,5 +42,9 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
+  }
+  search(searchElement) {
+    this.router.navigate(['/catalog/catalogGrid/', searchElement, 0]);
+    this.dataService.search(searchElement);
   }
 }
