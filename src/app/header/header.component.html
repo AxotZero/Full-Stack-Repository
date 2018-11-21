@@ -23,7 +23,7 @@
   <header id="branding">
     <div class="grid_3">
 
-        <h1 id="site_logo" ><a href="/" title=""><img style="width:80%" src="images/logoX2.png" alt="Online Store Theme Logo"/></a></h1>
+        <h1 id="site_logo" ><a a [routerLink]="['/']" title=""><img style="width:80%" src="images/logoX2.png" alt="Online Store Theme Logo"/></a></h1>
         <h2 id="site_description">Online Store Theme</h2>
 
     </div><!-- .grid_3 -->
@@ -71,7 +71,7 @@
 
       <nav class="private">
         <ul>
-          <li><a href="#">My Account</a></li>
+          <li><a [routerLink]="['/profile', 0]">My Account</a></li>
           <li class="separator">|</li>
           <li><a href="#">My Wishlist</a></li>
           <span *ngIf="!isLogin">
@@ -102,27 +102,27 @@
           <li class="parent">
               <a href="#">忍術</a>
               <ul class="sub">
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 1, 0 ]" (click) = "ChangeCategory(1)">火遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 2, 0 ]" (click) = "ChangeCategory(2)">水遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 3, 0 ]" (click) = "ChangeCategory(3)">風遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 4, 0 ]" (click) = "ChangeCategory(4)">土遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 5, 0 ]" (click) = "ChangeCategory(5)">雷遁</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 6, 0 ]" (click) = "ChangeCategory(6)">各種螺旋丸</a></li>
+                <li><a  (click) = "ChangeCategory(1)">火遁</a></li>
+                <li><a  (click) = "ChangeCategory(2)">水遁</a></li>
+                <li><a  (click) = "ChangeCategory(3)">風遁</a></li>
+                <li><a  (click) = "ChangeCategory(4)">土遁</a></li>
+                <li><a  (click) = "ChangeCategory(5)">雷遁</a></li>
+                <li><a  (click) = "ChangeCategory(6)">各種螺旋丸</a></li>
               </ul>
             </li>
-          <li><a [routerLink]="[ '/catalog/catalogGrid', 7, 0 ]" (click) = "ChangeCategory(7)">幻術</a></li>
-          <li><a [routerLink]="[ '/catalog/catalogGrid', 8, 0  ]" (click) = "ChangeCategory(8)">體術</a></li>
-          <li><a [routerLink]="[ '/catalog/catalogGrid', 9, 0  ]" (click) = "ChangeCategory(9)">通靈之術</a></li>
-          <li><a [routerLink]="[ '/catalog/catalogGrid', 10, 0  ]" (click) = "ChangeCategory(10)">封印之術</a></li>
-          <li><a [routerLink]="[ '/catalog/catalogGrid', 11, 0  ]" (click) = "ChangeCategory(11)">仙術</a></li>
+          <li><a (click) = "ChangeCategory(7)">幻術</a></li>
+          <li><a (click) = "ChangeCategory(8)">體術</a></li>
+          <li><a (click) = "ChangeCategory(9)">通靈之術</a></li>
+          <li><a (click) = "ChangeCategory(10)">封印之術</a></li>
+          <li><a (click) = "ChangeCategory(11)">仙術</a></li>
           <li class="parent">
             <a href="#">血繼限界</a>
             <ul class="sub">
-                <li><a [routerLink]="[ '/catalog/catalogGrid' , 12, 0  ]" (click) = "ChangeCategory(12)">屬性融合</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid' , 13, 0  ]" (click) = "ChangeCategory(13)">瞳術</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 14, 0  ]" (click) = "ChangeCategory(14)">血繼淘汰</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 15, 0  ]" (click) = "ChangeCategory(15)">血繼網羅</a></li>
-                <li><a [routerLink]="[ '/catalog/catalogGrid', 16, 0  ]" (click) = "ChangeCategory(16)">其他</a></li>
+                <li><a (click) = "ChangeCategory(12)">屬性融合</a></li>
+                <li><a (click) = "ChangeCategory(13)">瞳術</a></li>
+                <li><a (click) = "ChangeCategory(14)">血繼淘汰</a></li>
+                <li><a (click) = "ChangeCategory(15)">血繼網羅</a></li>
+                <li><a (click) = "ChangeCategory(16)">其他</a></li>
               </ul>
           </li>
           <li class="parent">

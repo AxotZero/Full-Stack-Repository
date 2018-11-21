@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -109,11 +110,15 @@ const routes: Routes = [
             component : BlogPostviewComponent
           }
         ]
-      }
+      },
     ]
   },
   {
     path : 'register', component : RegisterComponent
+  },
+  {
+    path : 'profile/:userId',
+    component : ProfilePageComponent,
   },
   {
     path: '**',

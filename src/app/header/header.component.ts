@@ -25,11 +25,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  changeCategory(n) {
+  ChangeCategory(n) {
     window.document.body.scrollTop = 0;
     window.document.documentElement.scrollTop = 0;
-    // this.router.navigate(['/catalog/catalogGrid/', n, 0]);
-    // this.dataService.ChangeCategory(n);
+    this.router.navigate(['/catalog/catalogGrid/', n, 0]);
+    this.dataService.ChangeCategory(n);
   }
 
   checkout() {

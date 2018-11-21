@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-catalog',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  get CatalogNumber() {
+    return this.dataService.CatalogNumber;
   }
 
+  constructor(private route: ActivatedRoute,
+              public dataService: DataService) {
+
+  }
+  ngOnInit() {
+
+  }
 }

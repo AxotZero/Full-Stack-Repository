@@ -1,3 +1,195 @@
-<p>
-  profile-page works!
-</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container_12">
+  <header id="branding">
+    <div class="grid_3">
+        <h1 id="site_logo" ><a [routerLink]="['/']" title=""><img style="width:80%" src="images/logoX2.png" alt="Online Store Theme Logo"/></a></h1>
+    </div><!-- .grid_3 -->
+  </header><!-- #branding -->
+</div><!-- .container_12 -->
+
+<div class="container emp-profile">
+  <form method="post">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+          <div class="file btn btn-lg btn-primary">
+            Change Photo
+            <input type="file" name="file"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="profile-head">
+          <h5>
+            {{Person.Username}}
+          </h5>
+          <h6>
+            {{Person.Profession}}
+          </h6>
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+        <div class="col-md-2">
+          <button *ngIf="!editMode" class="btn btn-sm btn-primary" (click)="buttonClick()">
+            Edit Profile
+          </button>
+          <button *ngIf="editMode" class="btn btn-sm btn-primary" (click)="buttonClick()">
+             Save
+          </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Name</label>
+                    </div>
+                      <div class="col-md-6 Username">
+                        <ng-container *ngIf="editMode == false">
+                          <input
+                            value="{{Person.Username}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Username}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Password</label>
+                      </div>
+                      <div class="col-md-6 Password">
+                        <ng-container *ngIf="editMode == false">
+                            <input
+                            value="{{Person.Password}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Password}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Email</label>
+                      </div>
+                      <div class="col-md-6 Email">
+                        <ng-container *ngIf="editMode == false">
+                            <input
+                            value="{{Person.Email}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Email}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Phone</label>
+                      </div>
+                      <div class="col-md-6 Phone">
+                        <ng-container *ngIf="editMode == false">
+                            <input
+                            value="{{Person.Phone}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Phone}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Level</label>
+                      </div>
+                      <div class="col-md-6 Level">
+                        <ng-container *ngIf="editMode == false">
+                            <input
+                            value="{{Person.Level}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Level}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Profession</label>
+                      </div>
+                      <div class="col-md-6 Profession">
+                        <ng-container *ngIf="editMode == false">
+                            <input
+                            value="{{Person.Profession}}"
+                            type="text"
+                            readonly
+                            style="color : #0062cc">
+                        </ng-container>
+                        <ng-container *ngIf="editMode == true">
+                            <input
+                            class = 'Edit'
+                            placeholder="{{Person.Profession}}"
+                            type="text"
+                            style="color : black"
+                            >
+                        </ng-container>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+</div>
+
+
+
+

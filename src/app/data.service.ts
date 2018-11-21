@@ -9,6 +9,7 @@ export class DataService {
   GridProducts = [];
   ListProducts = [];
   CategoryProducts = [];
+  CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
   Category;
   Page;
   // import { HttpClient } from '@angular/common/http';
@@ -27,6 +28,7 @@ export class DataService {
         Number(data.category_id) === Number(this.Category) );
         this.ShowProducts();
     }
+    setTimeout(() => {this.initCategoryNumber(); }, 500) ;
   }
 
   getProducts() {
@@ -50,10 +52,10 @@ export class DataService {
 
   ChangeCategory(num) {
     console.log('change Category');
-    // this.Category = num;
+    this.Category = num;
     this.CategoryProducts = this.FullProducts.filter(data =>
-      Number(data.Category) === Number(num) );
-    setTimeout(() => { this.ShowProducts(); } , 200);
+      Number(data.category_id) === Number(num) );
+    setTimeout(() => { this.ShowProducts(); } , 300);
   }
 
   ChangePage(num) {
@@ -81,5 +83,16 @@ export class DataService {
       data.name.indexOf(n) !== -1 || data.description.indexOf(n) !== -1);
       setTimeout(() => { this.ShowProducts(); } , 200);
   }
-
+  initCategoryNumber() {
+    this.CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
+    this.FullProducts.forEach(element => {
+      const n = element.category_id;
+      if (n < 7) {this.CatalogNumber[0]++; } else
+      if ( n === 7) { this.CatalogNumber[1]++; } else
+      if ( n === 8) { this.CatalogNumber[2]++; } else
+      if ( n === 9) { this.CatalogNumber[3]++; } else
+      if ( n === 10) { this.CatalogNumber[4]++; } else
+      if ( n === 11) { this.CatalogNumber[5]++; } else { this.CatalogNumber[6]++; }
+    });
+  }
 }
