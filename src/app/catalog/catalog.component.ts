@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
@@ -15,11 +15,17 @@ export class CatalogComponent implements OnInit {
     return this.dataService.CatalogNumber;
   }
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router,
               public dataService: DataService) {
 
   }
   ngOnInit() {
 
+  }
+  ChangeCategory(n) {
+    window.document.body.scrollTop = 0;
+    window.document.documentElement.scrollTop = 0;
+    this.router.navigate(['/catalog/catalogGrid/', n, 0]);
+    this.dataService.ChangeCategory(n);
   }
 }

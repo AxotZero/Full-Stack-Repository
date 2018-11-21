@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { isNumber } from 'util';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,23 +17,18 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => this.FullProducts = data);
-    console.log('constructor');
-    if ( this.CategoryProducts.length === 0) {
-      setTimeout( () => {
-        this.CategoryProducts = this.FullProducts.filter(data =>
-          Number(data.category_id) === Number(this.Category) );
-          setTimeout( () => { this.ShowProducts(); }, 200) ;
-      }, 500);
-    } else {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) === Number(this.Category) );
-        this.ShowProducts();
-    }
+
+    setTimeout( () => {
+      if ( isNumber(this.Category)) {
+        this.ChangeCategory(Number(this.Category));
+      } else {
+        this.search(this.Category);
+      }
+    }, 500);
     setTimeout(() => {this.initCategoryNumber(); }, 500) ;
   }
 
   getProducts() {
-    console.log('http get products');
     return this.httpClient
       .get('http://localhost:8000/api/products');
   }
@@ -53,9 +49,17 @@ export class DataService {
   ChangeCategory(num) {
     console.log('change Category');
     this.Category = num;
-    this.CategoryProducts = this.FullProducts.filter(data =>
-      Number(data.category_id) === Number(num) );
-    setTimeout(() => { this.ShowProducts(); } , 300);
+    if ( Number(this.Category) === -7) {
+      this.CategoryProducts = this.FullProducts.filter(data =>
+        Number(data.category_id) < Number(this.Category) * -1 );
+    } else if (Number(this.Category) === -11) {
+      this.CategoryProducts = this.FullProducts.filter(data =>
+        Number(data.category_id) > Number(this.Category) * -1 );
+    } else {
+      this.CategoryProducts = this.FullProducts.filter(data =>
+        Number(data.category_id) === Number(this.Category) );
+    }
+    setTimeout( () => { this.ShowProducts(); }, 200) ;
   }
 
   ChangePage(num) {

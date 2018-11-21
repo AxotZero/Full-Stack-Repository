@@ -33,7 +33,6 @@ export class CatalogGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.attribute + 'yayaya');
     this.Page(0);
   }
 

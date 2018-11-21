@@ -19,13 +19,13 @@
 
 		     <nav class="left_menu">
 			    <ul>
-				   <li><a href="#">忍術 <span>({{CatalogNumber[0]}})</span></a></li>
-				   <li><a href="#">幻術 <span> ({{CatalogNumber[1]}})</span></a></li>
-				   <li><a href="#">體術 <span>({{CatalogNumber[2]}})</span></a></li>
-				   <li><a href="#">通靈之術 <span>({{CatalogNumber[3]}})</span></a></li>
-           <li><a href="#">封印之術 <span>({{CatalogNumber[4]}})</span></a></li>
-           <li><a href="#">仙術 <span>({{CatalogNumber[5]}})</span></a></li>
-           <li><a href="#">血繼限界 <span>({{CatalogNumber[6]}})</span></a></li>
+				   <li><a (click)="ChangeCategory(-7)">忍術 <span>({{CatalogNumber[0]}})</span></a></li>
+				   <li><a (click)="ChangeCategory(7)">幻術 <span> ({{CatalogNumber[1]}})</span></a></li>
+				   <li><a (click)="ChangeCategory(8)">體術 <span>({{CatalogNumber[2]}})</span></a></li>
+				   <li><a (click)="ChangeCategory(9)">通靈之術 <span>({{CatalogNumber[3]}})</span></a></li>
+           <li><a (click)="ChangeCategory(10)">封印之術 <span>({{CatalogNumber[4]}})</span></a></li>
+           <li><a (click)="ChangeCategory(11)">仙術 <span>({{CatalogNumber[5]}})</span></a></li>
+           <li><a (click)="ChangeCategory(-11)" >血繼限界 <span>({{CatalogNumber[6]}})</span></a></li>
 				   <!-- <li class="last"><a href="#">Other <span>(135)</span></a></li> -->
 			    </ul>
 		     </nav><!-- .left_menu -->
