@@ -24,8 +24,8 @@ export class DataService {
       } else {
         this.search(this.Category);
       }
-    }, 500);
-    setTimeout(() => {this.initCategoryNumber(); }, 500) ;
+    }, 1000);
+    setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
   }
 
   getProducts() {
@@ -47,8 +47,8 @@ export class DataService {
   }
 
   ChangeCategory(num) {
-    console.log('change Category');
     this.Category = num;
+    this.Page = 0;
     if ( Number(this.Category) === -7) {
       this.CategoryProducts = this.FullProducts.filter(data =>
         Number(data.category_id) < Number(this.Category) * -1 );
@@ -68,7 +68,6 @@ export class DataService {
   }
 
   ShowProducts() {
-     console.log(this.Category + ' ' + this.Page);
     this.GridProducts = [];
     this.ListProducts = [];
     for (let i = 0; i < 9; i++) {

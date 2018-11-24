@@ -14,6 +14,7 @@ export class ProfilePageComponent implements OnInit {
     Phone : '123 456 7890',
     Level: '123',
     Profession : 'Web Developer and Designer',
+    imgsrc: ''
   };
   editMode = false;
 
@@ -40,5 +41,4 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     console.log(this.Person.Username);
   }
-
 }

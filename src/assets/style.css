@@ -498,7 +498,8 @@ input[type="submit"]:active{
 
 /*** Input **/
 input[type="email"],
-input[type="text"]{
+input[type="text"],
+input[type="password"]{
     height: 33px;
     padding: 0 10px;
     border: 1px solid #ccc;
@@ -510,6 +511,7 @@ input[type="text"]{
 }
 input[type="email"]:focus,
 input[type="text"]:focus,
+input[type="password"]:focus,
 textarea:focus{
     outline:none;
     border: 1px solid #59b7c2;
@@ -2320,6 +2322,7 @@ a.more:hover{
 }
 .add_comments input[type="text"],
 .add_comments input[type="email"],
+.add_comments input[type="password"],
 .add_comments textarea{
     margin: 10px 0 0 0;
 }
@@ -2399,7 +2402,8 @@ form.registed strong{
     font: bold 13px/13px Segoeui-Bold, Myriad Pro, Verdana, serif;
 }
 form.registed input[type="text"],
-form.registed input[type="email"]{
+form.registed input[type="email"],
+form.registed input[type="password"]{
     width: 255px;
     margin: 5px 0 13px 0;
 }
