@@ -17,9 +17,9 @@ export class DataService {
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => this.FullProducts = data);
-
+    console.log('data ' + this.Page, + ' ' + this.Category);
     setTimeout( () => {
-      if ( isNumber(this.Category)) {
+      if ( isNumber(Number(this.Category))) {
         this.ChangeCategory(Number(this.Category));
       } else {
         this.search(this.Category);
@@ -82,9 +82,9 @@ export class DataService {
     }
   }
   search(n) {
-    this.CategoryProducts = this.FullProducts.filter(data =>
-      data.name.indexOf(n) !== -1 || data.description.indexOf(n) !== -1);
-      setTimeout(() => { this.ShowProducts(); } , 200);
+      this.CategoryProducts = this.FullProducts.filter(data =>
+        data.name.indexOf(n) !== -1 || data.description.indexOf(n) !== -1);
+        setTimeout(() => { this.ShowProducts(); } , 200);
   }
   initCategoryNumber() {
     this.CatalogNumber = [0, 0, 0, 0, 0, 0, 0];

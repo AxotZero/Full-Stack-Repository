@@ -25,14 +25,21 @@ export class RegisterComponent implements OnInit {
       (data: any) => {
         console.log(data);
         if (data.success) {
+          alert('Now you are a ninja~! Please Log in ~!');
           this.router.navigate(['/login']);
         } else {
           alert('fail');
         }
       },
       response => {
+        const resError = response.error.errors;
+        let s = '';
         console.log(response);
-        alert(response.error.message);
+        if (typeof(resError.name) !== 'undefined') { s += resError.name + '\n'; }
+        if (typeof(resError.email) !== 'undefined') { s += resError.email + '\n'; }
+        if (typeof(resError.password) !== 'undefined') { s += resError.password + '\n'; } else
+        if (typeof(resError.password_confirmation) !== 'undefined') { s += resError.password_confirmation + '\n'; }
+        alert(s);
       }
     );
   }

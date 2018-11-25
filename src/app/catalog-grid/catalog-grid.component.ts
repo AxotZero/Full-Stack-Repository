@@ -27,9 +27,9 @@ export class CatalogGridComponent implements OnInit {
   constructor(private serviceService: ServiceService,
               private route: ActivatedRoute,
               public dataService: DataService) {
-
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
+    console.log('grid');
   }
 
   ngOnInit() {
