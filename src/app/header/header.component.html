@@ -71,9 +71,11 @@
 
       <nav class="private">
         <ul>
-          <li><a [routerLink]="['/profile', 0]">My Account</a></li>
-          <li class="separator">|</li>
-          <li><a href="#">My Wishlist</a></li>
+          <span *ngIf="isLogin">
+            <li><a [routerLink]="['/profile', 0]">My Account</a></li>
+            <li class="separator">|</li>
+            <li><a href="#">My Wishlist</a></li>
+          </span>
           <span *ngIf="!isLogin">
             <li class="separator">|</li>
             <li><a [routerLink]="[ '/login' ]" style="cursor: pointer;">Log In</a></li>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient) {}
 
   ngOnInit() {}
 
@@ -22,10 +23,16 @@ export class LoginComponent implements OnInit {
       if (data.token) {
         localStorage.setItem('token', data.token);
         this.router.navigate(['/']);
+        console.log(this.http.get('http://localhost:8000/api/me', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }));
       } else {
         alert('fail');
       }
     }, response => {
+      console.log(response);
       alert('Email or password is invalid !!');
     });
   }

@@ -11,6 +11,7 @@ export class DataService {
   ListProducts = [];
   CategoryProducts = [];
   CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
+  User;
   Category;
   Page;
   // import { HttpClient } from '@angular/common/http';
@@ -26,6 +27,16 @@ export class DataService {
       }
     }, 1000);
     setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
+
+
+    // test
+    this.httpClient.get('http://localhost:8000/api/me', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+    }).subscribe(data => {this.User = data; console.log(this.User); });
+    // console.log(this.User);
+
   }
 
   getProducts() {

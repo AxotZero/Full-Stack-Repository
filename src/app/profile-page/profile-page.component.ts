@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,16 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePageComponent implements OnInit {
 
-  Person = {
-    Username : 'Kshiti Ghelani',
-    Password : 'None',
-    Email : 'kshitighelani@gmail.com',
-    Phone : '123 456 7890',
-    Level: '123',
-    Profession : 'Web Developer and Designer',
-    imgsrc: ''
-  };
+
   editMode = false;
+
+  get Person() {
+    const person = {
+      Username : '',
+      Password : '',
+      Email : '',
+      Phone : '',
+      Level: '',
+      Profession : '',
+      imgsrc: ''
+    };
+    const u = this.dataService.User;
+    person.Username = u.name;
+    person.Email = u.email;
+    let n = '';
+    if (u.exp < 100) {n = '學生'; } else
+    if (u.exp < 500) {n = '下忍'; } else
+    if (u.exp < 3000) {n = '中忍'; } else
+    if (u.exp < 20000) {n = '上忍'; } else {n = '影'; }
+    person.Level = n;
+    return person;
+  }
+
 
   buttonClick() {
     // console.log('button clicked!');
@@ -36,9 +53,8 @@ export class ProfilePageComponent implements OnInit {
   }
 
 
-  constructor() { }
+  constructor(public dataService: DataService) {  }
 
   ngOnInit() {
-    console.log(this.Person.Username);
   }
 }

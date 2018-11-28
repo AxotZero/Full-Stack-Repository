@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-catalog-list',
   templateUrl: './catalog-list.component.html',
@@ -22,9 +23,10 @@ export class CatalogListComponent implements OnInit {
     return this.dataService.ListProducts;
   }
 
-  constructor(private serviceService: ServiceService,
-              private route: ActivatedRoute,
-              public dataService: DataService) {
+  constructor(private route: ActivatedRoute,
+              public dataService: DataService,
+              private router: Router,
+              private authService: AuthService) {
 
     console.log(this.attribute);
     this.dataService.Category = this.attribute;
@@ -32,11 +34,15 @@ export class CatalogListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.attribute + 'yayaya');
-    this.Page(0);
   }
 
-  Page(index) {
+  addToCart(e) {
+    if (this.authService.isLogin()) {
+      console.log(e);
+    } else {
+      alert('Please Login');
+      this.router.navigate(['/login']);
+    }
   }
 
 }

@@ -3,6 +3,7 @@ import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Product } from '../products';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-catalog-grid',
   templateUrl: './catalog-grid.component.html',
@@ -26,16 +27,23 @@ export class CatalogGridComponent implements OnInit {
 
   constructor(private serviceService: ServiceService,
               private route: ActivatedRoute,
-              public dataService: DataService) {
+              private router: Router,
+              public dataService: DataService,
+              private authService: AuthService) {
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
     console.log('grid');
   }
 
   ngOnInit() {
-    this.Page(0);
   }
 
-  Page(index) {
+  addToCart(e) {
+    if (this.authService.isLogin()) {
+      console.log(e);
+    } else {
+      alert('Please Login');
+      this.router.navigate(['/login']);
+    }
   }
 }

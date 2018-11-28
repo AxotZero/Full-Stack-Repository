@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { AuthService } from '../auth.service';
 declare let $: any;
 
 @Component({
@@ -21,6 +22,8 @@ export class ProductViewComponent implements OnInit {
   }
   constructor(private serviceService: ServiceService,
               private route: ActivatedRoute,
+              private router: Router,
+              private authService: AuthService,
               public dataService: DataService) {
 
     this.dataService.getProduct(this.Index).subscribe(data => {
@@ -86,7 +89,12 @@ export class ProductViewComponent implements OnInit {
     });
     }, 1);
   }
-
-
-
+  addToCart(e) {
+    if (this.authService.isLogin()) {
+      console.log(e);
+    } else {
+      alert('Please Login');
+      this.router.navigate(['/login']);
+    }
+  }
 }
