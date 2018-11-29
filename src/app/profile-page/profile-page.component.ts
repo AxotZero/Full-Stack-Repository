@@ -33,7 +33,13 @@ export class ProfilePageComponent implements OnInit {
     person.Level = n;
     return person;
   }
-
+  get Order() {
+    let item;
+    this.dataService.getOrder().subscribe(
+      data => {item = data; }
+    );
+    return item;
+  }
 
   buttonClick() {
     // console.log('button clicked!');
@@ -53,8 +59,15 @@ export class ProfilePageComponent implements OnInit {
   }
 
 
-  constructor(public dataService: DataService) {  }
+  constructor(public dataService: DataService,
+              private httpClient: HttpClient) {  }
 
   ngOnInit() {
   }
+
+  deleteOrder(id) {
+    return this.httpClient.delete('http://localhost:8000/api/orders', id);
+  }
+
+
 }

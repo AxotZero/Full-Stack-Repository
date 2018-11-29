@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Product } from '../products';
 import { AuthService } from '../auth.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-catalog-grid',
   templateUrl: './catalog-grid.component.html',
@@ -25,11 +26,11 @@ export class CatalogGridComponent implements OnInit {
     return this.dataService.GridProducts;
   }
 
-  constructor(private serviceService: ServiceService,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private router: Router,
               public dataService: DataService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
     console.log('grid');
@@ -40,7 +41,9 @@ export class CatalogGridComponent implements OnInit {
 
   addToCart(e) {
     if (this.authService.isLogin()) {
-      console.log(e);
+      const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
+      console.log(info);
+      return this.httpClient.post('http://localhost:8000/shopping-carts', info);
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

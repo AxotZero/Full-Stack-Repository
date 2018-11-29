@@ -3,6 +3,7 @@ import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { AuthService } from '../auth.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-catalog-list',
   templateUrl: './catalog-list.component.html',
@@ -26,7 +27,8 @@ export class CatalogListComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               public dataService: DataService,
               private router: Router,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private httpClient: HttpClient) {
 
     console.log(this.attribute);
     this.dataService.Category = this.attribute;
@@ -38,7 +40,8 @@ export class CatalogListComponent implements OnInit {
 
   addToCart(e) {
     if (this.authService.isLogin()) {
-      console.log(e);
+      const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
+      return this.httpClient.post('http://localhost:8000/shopping-carts', info);
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

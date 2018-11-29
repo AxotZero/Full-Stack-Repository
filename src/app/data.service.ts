@@ -14,11 +14,9 @@ export class DataService {
   User;
   Category;
   Page;
-  // import { HttpClient } from '@angular/common/http';
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => this.FullProducts = data);
-    console.log('data ' + this.Page, + ' ' + this.Category);
     setTimeout( () => {
       if ( isNumber(Number(this.Category))) {
         this.ChangeCategory(Number(this.Category));
@@ -27,16 +25,12 @@ export class DataService {
       }
     }, 1000);
     setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
-
-
     // test
     this.httpClient.get('http://localhost:8000/api/me', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
     }).subscribe(data => {this.User = data; console.log(this.User); });
-    // console.log(this.User);
-
   }
 
   getProducts() {
@@ -47,6 +41,16 @@ export class DataService {
   getProduct(id) {
     return this.httpClient
       .get(`http://localhost:8000/api/products/${id}`);
+  }
+
+  getShoppingCart() {
+    return this.httpClient
+    .get(`http://localhost:8000/api/shopping_carts/${this.User.id}`);
+  }
+
+  getOrder() {
+    return this.httpClient
+      .get(`http://localhost:8000/api/orders/${this.User.id}`);
   }
 
   createOrder(productIds) {
@@ -109,4 +113,7 @@ export class DataService {
       if ( n === 11) { this.CatalogNumber[5]++; } else { this.CatalogNumber[6]++; }
     });
   }
+
+
+
 }

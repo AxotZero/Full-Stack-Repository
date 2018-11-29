@@ -3,6 +3,7 @@ import { ServiceService } from '../service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { AuthService } from '../auth.service';
+import { HttpClient } from '@angular/common/http';
 declare let $: any;
 
 @Component({
@@ -13,7 +14,7 @@ declare let $: any;
 export class ProductViewComponent implements OnInit {
 
   Product;
-
+  Quantity = 1;
   get Index() {
     return this.route.snapshot.params['i'];
   }
@@ -24,7 +25,8 @@ export class ProductViewComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService,
-              public dataService: DataService) {
+              public dataService: DataService,
+              private httpClient: HttpClient) {
 
     this.dataService.getProduct(this.Index).subscribe(data => {
       this.Product = data;
@@ -34,22 +36,6 @@ export class ProductViewComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      $('#slider').carouFredSel({
-        prev: '.slidprev',
-        next: '.slidnext',
-        responsive	: true,
-        pagination  : '#myController',
-        scroll: 1,
-        items		: {
-          visible		: 1,
-          width		: 870,
-          height		: '46%'
-        },
-        swipe: {
-            onMouse: true,
-            onTouch: true
-        }
-    });
     $('#list_product').carouFredSel({
         prev: '#prev_c1',
         next: '#next_c1',
@@ -92,6 +78,14 @@ export class ProductViewComponent implements OnInit {
   addToCart(e) {
     if (this.authService.isLogin()) {
       console.log(e);
+      if (this.Quantity === null) {
+        alert('Quantity cannot be empty !!');
+        this.Quantity = 1;
+      } else {
+        const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: this.Quantity};
+        console.log(info);
+        return this.httpClient.post('http://localhost:8000/shopping-carts', info);
+      }
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);
