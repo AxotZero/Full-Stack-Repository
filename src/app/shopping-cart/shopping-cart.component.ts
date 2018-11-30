@@ -60,7 +60,7 @@ export class ShoppingCartComponent implements OnInit {
     return this.httpClient.post('http://localhost:8000/api/orders', ob);
   }
   test() {
-    this.dataService.createOrder(555).subscribe(
+    this.dataService.createOrder([555, 666]).subscribe(
       data => {console.log(data); }
     );
   }

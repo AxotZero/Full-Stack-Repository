@@ -28,16 +28,18 @@
     <span class="per-page">per page</span>
    </div><!-- .show -->
 
-   <div class="sort">
-    <span class="sort-by">Sort By</span>
-    <select>
-     <option>Position</option>
-     <option>Price</option>
-     <option>Rating</option>
-     <option>Name</option>
-     </select>
+   <div class="sort" style="float: right; padding-right: 20%">
+    <span class="sort-by" style="float: left; padding-top: 5%">Sort By:  </span>
+    <!-- <select (onchange)="ChangeSortKey(this.value)">
+     <option value="Name">Name</option>
+     <option value="Price">Price</option>
+     <option value="Level">Level</option>
+    </select> -->
+    <button class="sortButton" (click)="ChangeSortKey('Name')"> Name </button>
+    <button class="sortButton" (click)="ChangeSortKey('Level')"> Level </button>
+    <button class="sortButton" (click)="ChangeSortKey('Price')"> Price </button>
 
-    <a class="sort_up" href="#">&#8593;</a>
+    <a id="sortMethod" class="sort_up" (click)="ChangeSortMethod()">{{sortM}}</a>
    </div><!-- .sort -->
   </div><!-- .options -->
 

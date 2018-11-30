@@ -14,6 +14,8 @@ export class DataService {
   User;
   Category;
   Page;
+  OrderbyKey = 'Name';
+  OrderbyMethod = 'up';
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => this.FullProducts = data);
@@ -23,7 +25,7 @@ export class DataService {
       } else {
         this.search(this.Category);
       }
-    }, 1000);
+    }, 1300);
     setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
     // test
     this.httpClient.get('http://localhost:8000/api/me', {
@@ -74,12 +76,37 @@ export class DataService {
       this.CategoryProducts = this.FullProducts.filter(data =>
         Number(data.category_id) === Number(this.Category) );
     }
-    setTimeout( () => { this.ShowProducts(); }, 200) ;
+    setTimeout( () => { this.ShowProducts(); }, 300) ;
   }
 
   ChangePage(num) {
     this.Page = num;
     this.ShowProducts();
+  }
+
+  SortCategoryProducts() {
+    console.log('sort:' + this.OrderbyKey + ' ' + this.OrderbyMethod);
+    if (this.OrderbyKey === 'Name') {
+      if (this.OrderbyMethod === 'up') {
+        this.CategoryProducts.sort( function(a, b) {return a.name - b.name; });
+      } else {
+        this.CategoryProducts.sort( function(a, b) {return b.name - a.name; });
+      }
+    } else
+    if (this.OrderbyKey === 'Price') {
+      if (this.OrderbyMethod === 'up') {
+        this.CategoryProducts.sort( function(a, b) {return a.price - b.price; });
+      } else {
+        this.CategoryProducts.sort( function(a, b) {return b.price - a.price; });
+      }
+    } else {
+      if (this.OrderbyMethod === 'up') {
+        this.CategoryProducts.sort( function(a, b) {return b.level_id - a.level_id; });
+      } else {
+        this.CategoryProducts.sort( function(a, b) {return a.level_id - b.level_id; });
+      }
+    }
+    setTimeout( () => { this.ShowProducts(); }, 300) ;
   }
 
   ShowProducts() {

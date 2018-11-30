@@ -7,7 +7,7 @@
      <div class="prev">
       <a [routerLink]="['/catalog/product-view', item.id]" ><img src="images/product_6.png" alt="" title="" style="width:100%"/></a>
      </div><!-- .prev -->
-     <h3 class="title">{{item.name}}</h3>
+     <h3 class="title">{{item.name}}({{(convertLevel(item.level_id))}})</h3>
      <div class="cart">
       <div class="price">
        <div class="vert">
