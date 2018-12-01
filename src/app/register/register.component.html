@@ -1,40 +1,45 @@
-<section id="main" class="login entire_width">
-<div class="container_12">
-       <div id="content">
-    <div class="grid_12">
-        <h1 class="page_title">Let's start to be a Ninja</h1>
-    </div><!-- .grid_12 -->
-		<div class="grid_6 new_customers">
-		<div class="grid_6">
-			<form class="registed">
-        <h2>Regist as a Ninja</h2>
-        <div class="User">
-					<strong>Your Name:</strong><sup class="surely">*</sup><br/>
-					<input type="text" name="name" class="" value="" [(ngModel)]="user.name">
-				</div>
-				<div class="email">
-					<strong>Email Adress:</strong><sup class="surely">*</sup><br/>
-					<input type="email" name="Email" class="" value="" [(ngModel)]="user.email">
-				</div><!-- .email -->
+  <section id="main" class="login entire_width">
+      <div class="container_12">
+        <div id="content">
+          <div class="grid_12">
+            <h1 class="page_title">Login or Create an Account</h1>
+          </div><!-- .grid_12 -->
 
-				<div class="password">
-					<strong>Password:</strong><sup class="surely">*</sup><br/>
-					<input type="password" name="password" class="" value="" [(ngModel)]="user.password">
-				</div><!-- .password -->
-        <div class="password">
-					<strong>Password Confirmation:</strong><sup class="surely">*</sup><br/>
-					<input type="password" name="password_confirm" class="" value="" [(ngModel)]="user.password_confirmation"/>
-				</div><!-- .password -->
+        <div class="grid_6 new_customers">
+          <h2>New Customers</h2>
+          <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+          <div class="clear"></div>
+        </div><!-- .grid_6 -->
 
-				<div class="submit">
-					<input type="submit" value="Create" (click)="register()"/>
-				</div><!-- .submit -->
-			</form><!-- .registed -->
-                </div><!-- .grid_6 -->
-       </div><!-- #content -->
+        <div class="grid_6">
+            <form class="registed">
+                <h2>Regist as a Ninja</h2>
+                <div class="User">
+                  <strong>Your Name:</strong><sup class="surely">*</sup><br/>
+                  <input type="text" name="name" class="" value="" [(ngModel)]="user.name">
+                </div>
+                <div class="email">
+                  <strong>Email Adress:</strong><sup class="surely">*</sup><br/>
+                  <input type="email" name="Email" class="" value="" [(ngModel)]="user.email">
+                </div><!-- .email -->
+                <div class="password">
+                  <strong>Password:</strong><sup class="surely">*</sup><br/>
+                  <input type="password" name="password" class="" value="" [(ngModel)]="user.password">
+                </div><!-- .password -->
+                <div class="password">
+                  <strong>Password Confirmation:</strong><sup class="surely">*</sup><br/>
+                  <input type="password" name="password_confirm" class="" value="" [(ngModel)]="user.password_confirmation"/>
+                </div><!-- .password -->
 
-      <div class="clear"></div>
-    </div><!-- .container_12 -->
-</div>
-</section>
+                <div class="submit">
+                  <input type="submit" value="Create" (click)="register()"/>
+                </div><!-- .submit -->
+            </form><!-- .registed -->
+        </div><!-- .grid_6 -->
+        </div><!-- #content -->
 
+          <div class="clear"></div>
+      </div><!-- .container_12 -->
+    </section><!-- #main -->
+
+    <div class="clear"></div>
