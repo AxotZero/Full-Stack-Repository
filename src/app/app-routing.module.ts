@@ -19,6 +19,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { ImageMapComponent } from './image-map/image-map.component';
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -28,6 +29,10 @@ const routes: Routes = [
       },
       { path : 'login',
         component : LoginComponent
+      },
+      {
+        path : 'map',
+        component : ImageMapComponent
       },
       {
         path : 'register',
