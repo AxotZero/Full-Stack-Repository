@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
         this.http.get('http://localhost:8000/api/me', {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem('token')}`}
         }).subscribe(user => {this.dataService.User = user; });
       } else {
         alert('fail');

@@ -41,7 +41,11 @@ export class CatalogListComponent implements OnInit {
   addToCart(e) {
     if (this.authService.isLogin()) {
       const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
-      return this.httpClient.post('http://localhost:8000/shopping-carts', info);
+      return this.httpClient.post('http://localhost:8000/api/shopping-carts', info, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

@@ -25,7 +25,7 @@ export class DataService {
       } else {
         this.search(this.Category);
       }
-    }, 1300);
+    }, 1000);
     setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
     // test
     this.httpClient.get('http://localhost:8000/api/me', {
@@ -47,7 +47,11 @@ export class DataService {
 
   getShoppingCart() {
     return this.httpClient
-    .get(`http://localhost:8000/api/shopping_carts/${this.User.id}`);
+    .get(`http://localhost:8000/api/shopping_carts/${this.User.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
 
   getOrder() {
@@ -73,8 +77,8 @@ export class DataService {
       this.CategoryProducts = this.FullProducts.filter(data =>
         Number(data.category_id) > Number(this.Category) * -1 );
     } else {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) === Number(this.Category) );
+      this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
+      .subscribe( (data: any) => { this.CategoryProducts = data; });
     }
     setTimeout( () => { this.ShowProducts(); }, 300) ;
   }
@@ -85,7 +89,6 @@ export class DataService {
   }
 
   SortCategoryProducts() {
-    console.log('sort:' + this.OrderbyKey + ' ' + this.OrderbyMethod);
     if (this.OrderbyKey === 'Name') {
       if (this.OrderbyMethod === 'up') {
         this.CategoryProducts.sort( function(a, b) {return a.name - b.name; });

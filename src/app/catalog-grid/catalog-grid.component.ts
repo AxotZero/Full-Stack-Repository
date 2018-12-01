@@ -33,7 +33,6 @@ export class CatalogGridComponent implements OnInit {
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
-    console.log('grid');
   }
 
   ngOnInit() {
@@ -42,8 +41,12 @@ export class CatalogGridComponent implements OnInit {
   addToCart(e) {
     if (this.authService.isLogin()) {
       const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
-      console.log(info);
-      return this.httpClient.post('http://localhost:8000/shopping-carts', info);
+      // console.log(info);
+      this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }).subscribe(data => {console.log(data); });
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

@@ -18,20 +18,15 @@ export class ProductViewComponent implements OnInit {
   get Index() {
     return this.route.snapshot.params['i'];
   }
-  get Products() {
-    return this.serviceService.Products;
-  }
   constructor(private serviceService: ServiceService,
               private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService,
               public dataService: DataService,
               private httpClient: HttpClient) {
-
     this.dataService.getProduct(this.Index).subscribe(data => {
       this.Product = data;
     });
-
   }
 
   ngOnInit() {
@@ -84,7 +79,7 @@ export class ProductViewComponent implements OnInit {
       } else {
         const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: this.Quantity};
         console.log(info);
-        return this.httpClient.post('http://localhost:8000/shopping-carts', info);
+        return this.httpClient.post('http://localhost:8000/api/shopping-carts', info);
       }
     } else {
       alert('Please Login');

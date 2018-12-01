@@ -29,7 +29,7 @@ export class ProfilePageComponent implements OnInit {
     if (u.exp < 100) {n = '學生'; } else
     if (u.exp < 500) {n = '下忍'; } else
     if (u.exp < 3000) {n = '中忍'; } else
-    if (u.exp < 20000) {n = '上忍'; } else {n = '影'; }
+    if (u.exp < 20000) {n = '上忍'; } else {n = '火影'; }
     person.Level = n;
     return person;
   }

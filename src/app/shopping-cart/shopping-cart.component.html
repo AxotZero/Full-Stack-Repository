@@ -13,15 +13,17 @@
        <th class="subtotal">Subtotal</th>
        <th class="bg close"> </th>
       </tr>
-      <tr>
-       <td class="images"><a href="/product_page.html"><img src="images/product_6.png" alt="Product 6"></a></td>
-       <td class="bg name">Paddywax Fragrance Diffuser Set, Gardenia Tuberose,<br/> Jasmine, 4-Ounces</td>
-       <!-- <td class="edit"><a title="Edit" href="#">Edit</a></td> -->
-       <td class="price">$75.00</td>
-       <td class="bg qty"><input type="text" name="" value="" placeholder="1000" /></td>
-       <td class="subtotal">$750.00</td>
-       <td class="bg close"><a title="close" class="close" href="#"></a></td>
+      <ng-container *ngFor="let item of shoppingCart">
+        <tr>
+        <td class="images"><a href="/product_page.html"><img [src]="'http://localhost:8000/' + item.file_path" alt="Product 6"></a></td>
+        <td class="bg name">{{item.product_name}}</td>
+        <!-- <td class="edit"><a title="Edit" href="#">Edit</a></td> -->
+        <td class="price">${{item.price}}.00</td>
+        <td class="bg qty"><input type="text" name="" [(ngModel)]="item.quantity" (keydown.Enter)="update(item.product_id, item.quantity)"/></td>
+        <td class="subtotal">${{item.total_price}}.00</td>
+        <td class="bg close"><a title="close" class="close" (click)="deleteShoppingCart(item.shoppingcart_id)"></a></td>
       </tr>
+      </ng-container>
       <tr>
       </tr>
       <tr>
@@ -88,7 +90,7 @@
         <td>Grand Total</td><td class="price">$1, 500.00</td>
        </tr>
       </table>
-    <button class="checkout">PROCEED TO CHECKOUT</button>
+    <button class="checkout" (click)="createOrder()">PROCEED TO CHECKOUT</button>
           <a href="#">Checkout with Multiple Addresses</a>
         </div><!-- .total -->
       </div><!-- .grid_4 -->

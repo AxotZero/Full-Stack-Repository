@@ -43,7 +43,6 @@ export class CatalogProductComponent implements OnInit {
     this.dataService.ChangePage(i);
   }
   ChangeSortKey(s) {
-    console.log('s');
     this.dataService.OrderbyKey = s;
     this.dataService.SortCategoryProducts();
   }
