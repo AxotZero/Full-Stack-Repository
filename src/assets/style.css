@@ -234,54 +234,7 @@ body{
 /*********
 * Fonts *
 *********/
-@font-face{
-    font-family: Bitter;
-    src: url(../fonts/Bitter.eot)
-}
-@font-face{
-    font-family: Bitter;
-    src: url(../fonts/Bitter.ttf);
-}
-@font-face{
-    font-family: Bitter-Bold;
-    src: url(../fonts/Bitter-Bold.eot)
-}
-@font-face{
-    font-family: Bitter-Bold;
-    src: url(../fonts/Bitter-Bold.ttf);
-}
-@font-face{
-    font-family: Bitter-Italic;
-    src: url(../fonts/Bitter-Italic.eot)
-}
-@font-face{
-    font-family: Bitter-Italic;
-    src: url(../fonts/Bitter-Italic.ttf);
-}
-@font-face{
-    font-family: Segoeui;
-    src: url(../fonts/Segoeui.eot)
-}
-@font-face{
-    font-family: Segoeui;
-    src: url(../fonts/Segoeui.ttf);
-}
-@font-face{
-    font-family: Segoeui-Bold;
-    src: url(../fonts/Segoeui-Bold.eot)
-}
-@font-face{
-    font-family: Segoeui-Bold;
-    src: url(../fonts/Segoeui-Bold.ttf);
-}
-@font-face{
-    font-family: Segoeui-Italic;
-    src: url(../fonts/Segoeui-Italic.eot)
-}
-@font-face{
-    font-family: Segoeui-Italic;
-    src: url(../fonts/Segoeui-Italic.ttf);
-}
+
 
 *{
     padding:0;

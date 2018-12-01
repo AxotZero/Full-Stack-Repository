@@ -10,6 +10,7 @@ export class CatalogProductComponent implements OnInit {
 
   Active = 0;
   pageActive = 1;
+  sortM = '↑';
   constructor(public dataService: DataService) { }
   get ResultsNumber() {
     return this.dataService.CategoryProducts.length;
@@ -40,5 +41,21 @@ export class CatalogProductComponent implements OnInit {
     window.document.documentElement.scrollTop = 0;
     this.pageActive = i + 1;
     this.dataService.ChangePage(i);
+  }
+  ChangeSortKey(s) {
+    console.log('s');
+    this.dataService.OrderbyKey = s;
+    this.dataService.SortCategoryProducts();
+  }
+  ChangeSortMethod() {
+    if (this.sortM === '↑') {
+      this.dataService.OrderbyMethod = 'down';
+      this.sortM = '↓';
+      this.dataService.SortCategoryProducts();
+    } else {
+      this.dataService.OrderbyMethod = 'up';
+      this.sortM = '↑';
+      this.dataService.SortCategoryProducts();
+    }
   }
 }

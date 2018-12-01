@@ -1,0 +1,11 @@
+a {
+  cursor: pointer;
+}
+
+.sortButton {
+  float: left;
+  margin: 5px;
+  margin-top: 0;
+  width: 40px;
+  background-color: cornflowerblue;
+}

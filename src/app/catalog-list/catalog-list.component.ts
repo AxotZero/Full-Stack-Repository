@@ -48,4 +48,14 @@ export class CatalogListComponent implements OnInit {
     }
   }
 
+  convertLevel(id) {
+    switch (id) {
+      case 1: return 'S';
+      case 2: return 'A';
+      case 3: return 'B';
+      case 4: return 'C';
+      case 5: return 'D';
+    }
+  }
+
 }
