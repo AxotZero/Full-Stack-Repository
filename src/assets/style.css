@@ -2358,7 +2358,7 @@ form.registed strong{
 form.registed input[type="text"],
 form.registed input[type="email"],
 form.registed input[type="password"]{
-    width: 255px;
+    width: 75%;
     margin: 5px 0 13px 0;
 }
 form.registed a.forgot{
