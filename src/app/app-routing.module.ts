@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { IndexContentComponent } from './index-content/index-content.component';
@@ -20,6 +20,7 @@ import { BlogPostsComponent } from './blog-posts/blog-posts.component';
 import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ImageMapComponent } from './image-map/image-map.component';
+import { ForgottenComponent} from './forgotten/forgotten.component';
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path : 'map',
         component : ImageMapComponent
+      },
+      {
+        path : 'forgotten',
+        component : ForgottenComponent
       },
       {
         path : 'register',

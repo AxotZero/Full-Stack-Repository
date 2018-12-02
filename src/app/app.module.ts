@@ -26,6 +26,7 @@ import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ImageMapComponent } from './image-map/image-map.component';
+import { ForgottenComponent } from './forgotten/forgotten.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ImageMapComponent } from './image-map/image-map.component';
     BlogPostsComponent,
     BlogPostviewComponent,
     ProfilePageComponent,
-    ImageMapComponent
+    ImageMapComponent,
+    ForgottenComponent
   ],
   imports: [
     BrowserModule,
