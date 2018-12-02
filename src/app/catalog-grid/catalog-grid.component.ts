@@ -36,7 +36,7 @@ export class CatalogGridComponent implements OnInit {
               private authService: AuthService,
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
-    this.dataService.Page = this.Index;
+    this.dataService.Page = Number(this.Index);
     if (this.Search !== undefined) {
       this.dataService.SearchFlag = 1;
     }
@@ -53,7 +53,7 @@ export class CatalogGridComponent implements OnInit {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).subscribe(data => {console.log(data); });
+      }).subscribe((data: any) => {if ( data.success) { alert('Adding Successfully'); }});
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

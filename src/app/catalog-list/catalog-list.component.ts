@@ -19,7 +19,9 @@ export class CatalogListComponent implements OnInit {
   get attribute() {
     return this.route.snapshot.params['catelog'];
   }
-
+  get Search() {
+    return this.route.snapshot.params['search'];
+  }
   get Products() {
     return this.dataService.ListProducts;
   }
@@ -29,10 +31,11 @@ export class CatalogListComponent implements OnInit {
               private router: Router,
               private authService: AuthService,
               private httpClient: HttpClient) {
-
-    console.log(this.attribute);
     this.dataService.Category = this.attribute;
-    this.dataService.Page = this.Index;
+    this.dataService.Page = Number(this.Index);
+    if (this.Search !== undefined) {
+      this.dataService.SearchFlag = 1;
+    }
   }
 
   ngOnInit() {
@@ -46,7 +49,7 @@ export class CatalogListComponent implements OnInit {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).subscribe(data => {console.log(data); });
+      }).subscribe((data: any) => {if ( data.success) { alert('Adding Successfully'); }});
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

@@ -28,19 +28,38 @@ export class CatalogProductComponent implements OnInit {
   get Category() {
     return this.dataService.Category;
   }
+  get Search() {
+    return this.dataService.SearchFlag;
+  }
 
   ngOnInit() {
     // console.log('qq');
   }
   changeLink(i) {
-    if ( this.Active === 0) { return ['./catalogGrid', this.dataService.Category , i ]; }
-    return ['./catalogList', this.dataService.Category , i];
+    if (i >= 0 && i < this.HowManyPages) {
+      if ( this.Active === 0) {
+        if (!this.Search) {
+          return ['./catalogGrid', this.dataService.Category , i];
+        } else {
+          return ['./catalogGrid', this.dataService.Category , i, 'search'];
+        }
+      } else {
+        if (!this.Search) {
+          return ['./catalogList', this.dataService.Category , i];
+        } else {
+          return ['./catalogList', this.dataService.Category , i, 'search'];
+        }
+      }
+      // console.log(this.Search);
+    }
   }
   changePage(i) {
     window.document.body.scrollTop = 0;
     window.document.documentElement.scrollTop = 0;
-    this.pageActive = i + 1;
-    this.dataService.ChangePage(i);
+    if (i >= 0 && i < this.HowManyPages) {
+      this.pageActive = i + 1;
+      this.dataService.ChangePage(i);
+    }
   }
   ChangeSortKey(s) {
     this.dataService.OrderbyKey = s;

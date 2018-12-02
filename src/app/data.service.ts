@@ -11,6 +11,7 @@ export class DataService {
   GridProducts = [];
   ListProducts = [];
   CategoryProducts = [];
+  shoppingCart = [];
   CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
   User;
   Category;
@@ -18,32 +19,46 @@ export class DataService {
   SearchFlag = 0;
   OrderbyKey = 'Name';
   OrderbyMethod = 'up';
+  totalPrice = 0;
+
+
+
   constructor(private httpClient: HttpClient,
     private auth: AuthService) {
+    // 獲取各項商品列表資訊
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => {
       this.FullProducts = data;
       this.initCategoryNumber();
+      // 查看是否為搜尋頁面
       setTimeout(() => {
         if (this.SearchFlag) {
-          console.log(this.Category + ' search');
           this.search(this.Category);
         }
       }, 10);
     });
+    // 查看是否為分類頁面
     setTimeout(() => {
       if (!this.SearchFlag) {
-        console.log(this.Category + ' ' + typeof(this.Category) + ' change');
         this.ChangeCategory(this.Category);
       }
     }, 10);
-
+    // 獲取使用者購物車資訊
     if (this.auth.isLogin()) {
       this.httpClient.get('http://localhost:8000/api/me', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).subscribe(data => {this.User = data; console.log(this.User); });
+      }).subscribe(data => {
+        this.User = data; console.log(this.User);
+        this.getShoppingCart().subscribe( (item: any) => {
+          this.shoppingCart = item;
+            this.totalPrice = 0;
+            this.shoppingCart.forEach(element => {
+              this.totalPrice += element.total_price;
+            });
+        });
+      });
     }
   }
 
