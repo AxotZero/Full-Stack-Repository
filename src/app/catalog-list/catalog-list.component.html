@@ -5,7 +5,7 @@
       <div class="grid_3">
         <img class="sale" src="images/new.png" alt="New"/>
         <div class="prev">
-          <a  [routerLink]="['/catalog/product-view', i]"><img src="images/product_5.png" alt="" title="" style="width:100%"/></a>
+          <a  [routerLink]="['/catalog/product-view', i]"><img [src]="'http://localhost:8000/' + item.file_path" alt="" title="" style="width:100%"/></a>
         </div><!-- .prev -->
       </div><!-- .grid_3 -->
 

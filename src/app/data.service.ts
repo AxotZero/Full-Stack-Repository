@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isNumber } from 'util';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,25 +15,36 @@ export class DataService {
   User;
   Category;
   Page;
+  SearchFlag = 0;
   OrderbyKey = 'Name';
   OrderbyMethod = 'up';
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient,
+    private auth: AuthService) {
     this.httpClient.get('http://localhost:8000/api/products').subscribe
-    ((data: any) => this.FullProducts = data);
-    setTimeout( () => {
-      if ( isNumber(Number(this.Category))) {
-        this.ChangeCategory(Number(this.Category));
-      } else {
-        this.search(this.Category);
+    ((data: any) => {
+      this.FullProducts = data;
+      this.initCategoryNumber();
+      setTimeout(() => {
+        if (this.SearchFlag) {
+          console.log(this.Category + ' search');
+          this.search(this.Category);
+        }
+      }, 10);
+    });
+    setTimeout(() => {
+      if (!this.SearchFlag) {
+        console.log(this.Category + ' change');
+        this.ChangeCategory(this.Category);
       }
-    }, 1000);
-    setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
-    // test
-    this.httpClient.get('http://localhost:8000/api/me', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-    }).subscribe(data => {this.User = data; console.log(this.User); });
+    }, 10);
+
+    if (this.auth.isLogin()) {
+      this.httpClient.get('http://localhost:8000/api/me', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }).subscribe(data => {this.User = data; console.log(this.User); });
+    }
   }
 
   getProducts() {
@@ -70,17 +82,11 @@ export class DataService {
   ChangeCategory(num) {
     this.Category = num;
     this.Page = 0;
-    if ( Number(this.Category) === -7) {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) < Number(this.Category) * -1 );
-    } else if (Number(this.Category) === -11) {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) > Number(this.Category) * -1 );
-    } else {
       this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
-      .subscribe( (data: any) => { this.CategoryProducts = data; });
-    }
-    setTimeout( () => { this.ShowProducts(); }, 300) ;
+      .subscribe( (data: any) => {
+        this.CategoryProducts = data;
+        this.ShowProducts();
+      });
   }
 
   ChangePage(num) {

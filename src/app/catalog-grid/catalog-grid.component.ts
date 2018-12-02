@@ -22,6 +22,10 @@ export class CatalogGridComponent implements OnInit {
     return this.route.snapshot.params['catelog'];
   }
 
+  get Search() {
+    return this.route.snapshot.params['search'];
+  }
+
   get Products() {
     return this.dataService.GridProducts;
   }
@@ -33,6 +37,9 @@ export class CatalogGridComponent implements OnInit {
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
     this.dataService.Page = this.Index;
+    if (this.Search !== undefined) {
+      this.dataService.SearchFlag = 1;
+    }
   }
 
   ngOnInit() {

@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     });
   }
   search(searchElement) {
-    this.router.navigate(['/catalog/catalogGrid/', searchElement, 0]);
+    this.router.navigate(['/catalog/catalogGrid/', searchElement, 0, 'search']);
     this.dataService.search(searchElement);
   }
 }
