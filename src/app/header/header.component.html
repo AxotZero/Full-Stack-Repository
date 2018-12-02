@@ -40,33 +40,7 @@
     <span *ngIf="isLogin">
     <ul id="cart_nav">
         <li>
-          <a class="cart_li" [routerLink]="[ '/shopping-cart' ]">Cart <span>$0.00</span></a>
-          <ul class="cart_cont">
-            <li class="no_border"><p>Recently added item(s)</p></li>
-            <li>
-              <a [routerLink]="[ '/catalog/product-view' ]" class="prev_cart"><div class="cart_vert"><img src="images/cart_img.png" alt="" title="" /></div></a>
-              <div class="cont_cart">
-                <h4>Caldrea Linen and Room Spray</h4>
-                <div class="price">1 x $399.00</div>
-              </div>
-              <a title="close" class="close" href="#"></a>
-              <div class="clear"></div>
-            </li>
-
-            <li>
-              <a [routerLink]="[ '/catalog/product-view' ]" class="prev_cart"><div class="cart_vert"><img src="images/produkt_slid1.png" alt="" title="" /></div></a>
-              <div class="cont_cart">
-                <h4>Caldrea Linen and Room Spray</h4>
-                <div class="price">1 x $399.00</div>
-              </div>
-              <a title="close" class="close" href="#"></a>
-              <div class="clear"></div>
-            </li>
-      <li class="no_border">
-  <a [routerLink]="[ '/shopping-cart' ]" class="view_cart">View shopping cart</a>
-  <a [routerLink]="[ '/checkout' ]" class="checkout">Procced to Checkout</a>
-      </li>
-          </ul>
+          <a class="cart_li" [routerLink]="[ '/shopping-cart' ]">Cart <span>${{cartPrice}}.00</span></a>
         </li>
       </ul>
     </span>

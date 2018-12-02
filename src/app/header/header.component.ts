@@ -11,7 +11,9 @@ import { DataService } from '../data.service';
 export class HeaderComponent implements OnInit {
 
   searchElement = '';
-
+  get cartPrice() {
+    return this.dataService.totalPrice;
+  }
   get isLogin() {
     return this.authService.isLogin();
   }
