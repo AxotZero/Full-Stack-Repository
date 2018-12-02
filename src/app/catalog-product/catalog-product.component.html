@@ -49,12 +49,12 @@
 
   <div class="pagination">
    <ul>
-    <li class="prev"><span>&#8592;</span></li>
+    <li class="prev"><a (click)="changePage(Page - 1)" [routerLink]="changeLink(Page - 1)">←</a></li>
     <li *ngFor="let item of [].constructor(HowManyPages) let i = index"
     [ngClass]="{curent: pageActive === (i+1) }"
     (click)="changePage(i)"><a [routerLink]="changeLink(i)" >{{i + 1}}</a></li>
-    <li class="next"><a href="#">&#8594;</a></li>
+    <li class="next"><a (click)="changePage(Page + 1)" [routerLink]="changeLink(Page + 1)">→</a></li>
    </ul>
   </div><!-- .pagination -->
-  <p class="pagination_info">Displaying 1 to {{HowManyPages}}</p>
+  <p class="pagination_info">Displaying {{Page + 1}} to {{HowManyPages}}</p>
  </div><!-- #content -->

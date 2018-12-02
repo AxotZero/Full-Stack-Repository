@@ -22,6 +22,10 @@ export class CatalogGridComponent implements OnInit {
     return this.route.snapshot.params['catelog'];
   }
 
+  get Search() {
+    return this.route.snapshot.params['search'];
+  }
+
   get Products() {
     return this.dataService.GridProducts;
   }
@@ -32,8 +36,10 @@ export class CatalogGridComponent implements OnInit {
               private authService: AuthService,
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
-    this.dataService.Page = this.Index;
-    console.log('grid');
+    this.dataService.Page = Number(this.Index);
+    if (this.Search !== undefined) {
+      this.dataService.SearchFlag = 1;
+    }
   }
 
   ngOnInit() {
@@ -42,8 +48,12 @@ export class CatalogGridComponent implements OnInit {
   addToCart(e) {
     if (this.authService.isLogin()) {
       const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
-      console.log(info);
-      return this.httpClient.post('http://localhost:8000/shopping-carts', info);
+      // console.log(info);
+      this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }).subscribe((data: any) => {if ( data.success) { alert('Adding Successfully'); }});
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

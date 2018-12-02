@@ -56,19 +56,19 @@ const routes: Routes = [
                 component : CatalogGridComponent
               },
               {
-                path : 'catalogGrid/:page',
-                component : CatalogGridComponent
-              },
-              {
                 path : 'catalogGrid/:catelog/:page',
                 component : CatalogGridComponent
               },
               {
-                path : 'catalogList/:page',
+                path : 'catalogList/:catelog/:page',
                 component : CatalogListComponent
               },
               {
-                path : 'catalogList/:catelog/:page',
+                path : 'catalogGrid/:catelog/:page/:search',
+                component : CatalogGridComponent
+              },
+              {
+                path : 'catalogList/:catelog/:page/:search',
                 component : CatalogListComponent
               },
             ]

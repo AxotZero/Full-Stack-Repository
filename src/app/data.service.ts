@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isNumber } from 'util';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,29 +11,55 @@ export class DataService {
   GridProducts = [];
   ListProducts = [];
   CategoryProducts = [];
+  shoppingCart = [];
   CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
   User;
   Category;
   Page;
+  SearchFlag = 0;
   OrderbyKey = 'Name';
   OrderbyMethod = 'up';
-  constructor(private httpClient: HttpClient) {
+  totalPrice = 0;
+
+
+
+  constructor(private httpClient: HttpClient,
+    private auth: AuthService) {
+    // 獲取各項商品列表資訊
     this.httpClient.get('http://localhost:8000/api/products').subscribe
-    ((data: any) => this.FullProducts = data);
-    setTimeout( () => {
-      if ( isNumber(Number(this.Category))) {
-        this.ChangeCategory(Number(this.Category));
-      } else {
-        this.search(this.Category);
+    ((data: any) => {
+      this.FullProducts = data;
+      this.initCategoryNumber();
+      // 查看是否為搜尋頁面
+      setTimeout(() => {
+        if (this.SearchFlag) {
+          this.search(this.Category);
+        }
+      }, 10);
+    });
+    // 查看是否為分類頁面
+    setTimeout(() => {
+      if (!this.SearchFlag) {
+        this.ChangeCategory(this.Category);
       }
-    }, 1300);
-    setTimeout(() => {this.initCategoryNumber(); }, 1000) ;
-    // test
-    this.httpClient.get('http://localhost:8000/api/me', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-    }).subscribe(data => {this.User = data; console.log(this.User); });
+    }, 10);
+    // 獲取使用者購物車資訊
+    if (this.auth.isLogin()) {
+      this.httpClient.get('http://localhost:8000/api/me', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }).subscribe(data => {
+        this.User = data; console.log(this.User);
+        this.getShoppingCart().subscribe( (item: any) => {
+          this.shoppingCart = item;
+            this.totalPrice = 0;
+            this.shoppingCart.forEach(element => {
+              this.totalPrice += element.total_price;
+            });
+        });
+      });
+    }
   }
 
   getProducts() {
@@ -47,7 +74,11 @@ export class DataService {
 
   getShoppingCart() {
     return this.httpClient
-    .get(`http://localhost:8000/api/shopping_carts/${this.User.id}`);
+    .get(`http://localhost:8000/api/shopping_carts/${this.User.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
   }
 
   getOrder() {
@@ -64,19 +95,13 @@ export class DataService {
   }
 
   ChangeCategory(num) {
-    this.Category = num;
+    this.Category = Number(num);
     this.Page = 0;
-    if ( Number(this.Category) === -7) {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) < Number(this.Category) * -1 );
-    } else if (Number(this.Category) === -11) {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) > Number(this.Category) * -1 );
-    } else {
-      this.CategoryProducts = this.FullProducts.filter(data =>
-        Number(data.category_id) === Number(this.Category) );
-    }
-    setTimeout( () => { this.ShowProducts(); }, 300) ;
+      this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
+      .subscribe( (data: any) => {
+        this.CategoryProducts = data;
+        this.ShowProducts();
+      });
   }
 
   ChangePage(num) {
@@ -85,7 +110,6 @@ export class DataService {
   }
 
   SortCategoryProducts() {
-    console.log('sort:' + this.OrderbyKey + ' ' + this.OrderbyMethod);
     if (this.OrderbyKey === 'Name') {
       if (this.OrderbyMethod === 'up') {
         this.CategoryProducts.sort( function(a, b) {return a.name - b.name; });

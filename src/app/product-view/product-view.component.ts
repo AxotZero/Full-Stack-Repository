@@ -18,20 +18,14 @@ export class ProductViewComponent implements OnInit {
   get Index() {
     return this.route.snapshot.params['i'];
   }
-  get Products() {
-    return this.serviceService.Products;
-  }
-  constructor(private serviceService: ServiceService,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService,
               public dataService: DataService,
               private httpClient: HttpClient) {
-
     this.dataService.getProduct(this.Index).subscribe(data => {
       this.Product = data;
     });
-
   }
 
   ngOnInit() {
@@ -76,16 +70,23 @@ export class ProductViewComponent implements OnInit {
     }, 1);
   }
   addToCart(e) {
+
+    if (this.Quantity < 1 || this.Quantity % 1 !== 0) {
+      alert('Quantity must be integer and greater than 1');
+      this.Quantity = 1;
+      return;
+    }
     if (this.authService.isLogin()) {
-      console.log(e);
-      if (this.Quantity === null) {
-        alert('Quantity cannot be empty !!');
-        this.Quantity = 1;
-      } else {
-        const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: this.Quantity};
-        console.log(info);
-        return this.httpClient.post('http://localhost:8000/shopping-carts', info);
-      }
+      const info = {
+        user_id: this.dataService.User.id,
+        product_id: e.id,
+        quantity: this.Quantity
+      };
+      this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }).subscribe((data: any) => {if ( data.success) { alert('Adding Successfully'); }});
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

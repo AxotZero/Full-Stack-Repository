@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare let $: any;
 
@@ -13,11 +14,11 @@ declare let $: any;
 export class ShoppingCartComponent implements OnInit {
 
   get shoppingCart() {
-    let shopping;
-    this.dataService.getShoppingCart().subscribe(
-      data => {shopping = data; }
-    );
-    return shopping;
+    return this.dataService.shoppingCart;
+  }
+
+  get totalPrice () {
+    return this.dataService.totalPrice;
   }
 
   address = '';
@@ -26,9 +27,22 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(private authService: AuthService,
     public dataService: DataService,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute) {
+    }
 
+    getItem() {
+      this.dataService.getShoppingCart().subscribe( (item: any) => {
+        this.dataService.shoppingCart = item;
+        this.dataService.totalPrice = 0;
+        item.forEach(element => {
+          this.dataService.totalPrice += element.total_price;
+        });
+      });
+    }
     ngOnInit() {
+      this.getItem();
       setTimeout(() => {
       $('#list_product').carouFredSel({
           prev: '#prev_c1',
@@ -43,21 +57,58 @@ export class ShoppingCartComponent implements OnInit {
     }
 
   deleteShoppingCart(id) {
-    return this.httpClient.delete('http://localhost:8000/api/shopping_carts', id);
+    console.log('delete');
+    this.httpClient.delete(`http://localhost:8000/api/shopping_carts/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe(data => {console.log(data); this.getItem(); });
   }
-  update(product_id, quantity) {
-    const ob = {user_id: this.dataService.User.id, product_id: product_id, quantity: quantity } ;
-    return this.httpClient.post('http://localhost:8000/api/shopping_carts/update', ob);
+  update(index, quantity) {
+    if (quantity < 1 || quantity % 1 !== 0) {
+      quantity = 1;
+    }
+    this.getItem();
+    const ob = {
+      user_id: this.dataService.User.id,
+      product_id: this.shoppingCart[index].product_id,
+      quantity: quantity } ;
+    this.httpClient.post('http://localhost:8000/api/shopping_carts/update', ob, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe(data => {console.log(data); this.getItem(); });
   }
 
   createOrder() {
+    console.log('createOrder\n' + 'this.');
+    let error = '';
+    if ( this.totalPrice === 0) {
+      alert('There is nothing in your shopping cart!!');
+      return;
+    }
+    if ( this.address === '') {
+      error += 'Address can not be empty!!\n';
+    }
+    if ( this.phoneNumber === '') {
+      error += 'Phone Number can not be empty!!\n';
+    }
+    if ( error !== '') {
+      alert(error);
+      return;
+    }
     const ob = {
       user_id: this.dataService.User.id,
       address: this.address,
       phone_number: this.phoneNumber,
-      total_price: this.price
+      total_price: this.totalPrice
     };
-    return this.httpClient.post('http://localhost:8000/api/orders', ob);
+    this.httpClient.post('http://localhost:8000/api/orders', ob, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe(data => {console.log(data); });
+    this.dataService.shoppingCart = [];
   }
   test() {
     this.dataService.createOrder([555, 666]).subscribe(
