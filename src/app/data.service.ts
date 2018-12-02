@@ -33,7 +33,7 @@ export class DataService {
     });
     setTimeout(() => {
       if (!this.SearchFlag) {
-        console.log(this.Category + ' change');
+        console.log(this.Category + ' ' + typeof(this.Category) + ' change');
         this.ChangeCategory(this.Category);
       }
     }, 10);
@@ -80,7 +80,7 @@ export class DataService {
   }
 
   ChangeCategory(num) {
-    this.Category = num;
+    this.Category = Number(num);
     this.Page = 0;
       this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
       .subscribe( (data: any) => {
