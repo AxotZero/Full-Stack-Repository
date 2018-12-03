@@ -59,6 +59,7 @@ export class CatalogProductComponent implements OnInit {
     if (i >= 0 && i < this.HowManyPages) {
       this.pageActive = i + 1;
       this.dataService.ChangePage(i);
+      //
     }
   }
   ChangeSortKey(s) {
