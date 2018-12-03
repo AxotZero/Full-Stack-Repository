@@ -25,6 +25,8 @@ export class ForgottenComponent implements OnInit {
     this.verifyCode = localStorage.getItem('verifyCode');
     if (this.inputcode === this.verifyCode) {
       console.log('confirm');
+      localStorage.removeItem('verifyCode');
+      alert('已驗證，請重設密碼！');
       this.router.navigate(['/reset']);
     } else {
       alert('Wrong VerifyCode !!');
@@ -42,6 +44,8 @@ export class ForgottenComponent implements OnInit {
     this.router.navigate(['/forgotten']);
     if (this.str === null || this.str === 'null') {
       alert('Account not Exist !!');
+    } else {
+      localStorage.setItem('email', this.user.email);
     }
     });
   }

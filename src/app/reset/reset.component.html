@@ -1,3 +1,33 @@
-<p>
-  reset works!
-</p>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+  <meta http-equiv="Content-Type" content="charset=utf-8" />
+  <style>
+  .mail .container{
+   width:600px;
+  }
+  .mail{
+   font-family:微軟正黑體;
+   font-size:20px;
+  }
+  </style>
+  </head>
+  <div class="mail">
+      <div class="container">
+            <h1 class="page_title">重設密碼</h1>
+      <form id="msg" name="msg" method="post" action="">
+        <div class="form-group">
+            <label for="password">新密碼</label>
+            <input type="password" class="form-control" id="nickname" name="nickname" placeholder="輸入您的新密碼" [(ngModel)]="user.password">
+        </div>
+        <div style="align:right">
+          <div class="form-group">
+            <label for="confirm">確認新密碼</label>
+    <input type="password" class="form-control" id="email" name="email" placeholder="再輸入一次您的新密碼" [(ngModel)]="user.password_confirm">
+          </div>
+              <button type="submit" class="btn btn-default" (click)="reset()">修改</button>
+        </div>
+        <br>
+      </form>
+      </div>
+  </div>
