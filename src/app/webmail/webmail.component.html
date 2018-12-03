@@ -1,0 +1,42 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+  <meta http-equiv="Content-Type" content="charset=utf-8" />
+  <style>
+  .mail .container{
+   width:600px;
+  }
+  .mail{
+   font-family:微軟正黑體;
+   font-size:20px;
+  }
+  </style>
+  </head>
+  <div class="mail">
+      <div class="container">
+            <h1 class="page_title">聯絡我們</h1>
+          <br>
+      <form id="msg" name="msg" method="post" action="">
+        <div class="form-group">
+            <label for="nickname">暱稱</label>
+            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="輸入您的暱稱" [(ngModel)]="content.nickname">
+        </div>
+        <div style="align:right">
+          <div class="form-group">
+            <label for="email">電子郵件信箱</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="輸入E-mail" [(ngModel)]="content.email">
+          </div>
+          <div class="form-group">
+            <label for="title">主旨</label>
+            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="輸入主旨" [(ngModel)]="content.title">
+          </div>
+          <div class="form-group">
+            <label for="text">內容</label>
+            <textarea class="form-control" id="content" name="content" rows="5" [(ngModel)]="content.text"></textarea>
+        </div>
+              <button type="submit" class="btn btn-default" (click)="mail()">寄出</button>
+        </div>
+        <br>
+      </form>
+      </div>
+  </div>

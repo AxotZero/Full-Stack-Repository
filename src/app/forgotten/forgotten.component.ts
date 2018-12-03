@@ -14,11 +14,21 @@ export class ForgottenComponent implements OnInit {
     email: ''
   };
   str;
+  inputcode;
   verifyCode = undefined;
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.str = localStorage.getItem('verifyCode');
+  }
+  verify() {
+    this.verifyCode = localStorage.getItem('verifyCode');
+    if (this.inputcode === this.verifyCode) {
+      console.log('confirm');
+      this.router.navigate(['/reset']);
+    } else {
+      alert('Wrong VerifyCode !!');
+    }
   }
   find() {
     // console.log(this.user);
@@ -27,9 +37,12 @@ export class ForgottenComponent implements OnInit {
       // console.log(this.verifyCode);
     localStorage.setItem('verifyCode', this.verifyCode);
     this.str = localStorage.getItem('verifyCode');
+    this.verifyCode = this.str;
     console.log(this.str);
-      this.router.navigate(['/forgotten']);
+    this.router.navigate(['/forgotten']);
+    if (this.str === null || this.str === 'null') {
       alert('Account not Exist !!');
+    }
     });
   }
 }
