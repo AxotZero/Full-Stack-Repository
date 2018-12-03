@@ -16,18 +16,16 @@ export class ProductViewComponent implements OnInit {
   Product;
   Quantity = 1;
   get Index() {
-    return this.route.snapshot.params['i'];
+    return Number(this.route.snapshot.params['i']);
   }
+  relatedProducts = [{}];
   constructor(private route: ActivatedRoute,
               private router: Router,
               private authService: AuthService,
               public dataService: DataService,
               private httpClient: HttpClient) {
-    this.dataService.getProduct(this.Index).subscribe(data => {
-      this.Product = data;
-    });
+    this.init();
   }
-
   ngOnInit() {
     setTimeout(() => {
     $('#list_product').carouFredSel({
@@ -67,8 +65,31 @@ export class ProductViewComponent implements OnInit {
             onMouse: true,
             onTouch: true}
     });
-    }, 1);
+    }, 500);
   }
+
+  change(n) {
+    this.router.navigate(['/catalog/product-view', n]);
+    setTimeout(() => {
+      this.init();
+    }, 50);
+  }
+
+  init() {
+    this.dataService.getProduct(this.Index).subscribe(data => {
+      this.Product = data;
+    });
+    this.dataService.getProducts().subscribe((data: any) => {
+      const l = data.length;
+      this.relatedProducts[0] = data[(this.Index - 3 + l) % l];
+      this.relatedProducts[1] = data[(this.Index - 2 + l) % l];
+      this.relatedProducts[2] = data[(this.Index ) % l];
+      this.relatedProducts[3] = data[(this.Index + 1) % l];
+    console.log(this.relatedProducts);
+
+    });
+  }
+
   addToCart(e) {
 
     if (this.Quantity < 1 || this.Quantity % 1 !== 0) {

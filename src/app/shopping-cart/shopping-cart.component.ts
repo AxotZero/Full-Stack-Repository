@@ -107,8 +107,9 @@ export class ShoppingCartComponent implements OnInit {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
-    }).subscribe(data => {console.log(data); });
+    }).subscribe((data: any) => { alert(data.message); });
     this.dataService.shoppingCart = [];
+    this.dataService.totalPrice = 0;
   }
   test() {
     this.dataService.createOrder([555, 666]).subscribe(
