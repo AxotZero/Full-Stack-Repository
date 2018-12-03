@@ -17,23 +17,23 @@
         <br>
     <form id="msg" name="msg" method="post" action="">
       <div class="form-group">
-        <label for="nickname">姓名</label>
-        <input type="text" class="form-control" id="nickname" name="nickname" placeholder="輸入您的姓名" [(ngModel)]="user.name">
-      </div>
-      <div class="form-group">
-        <label for="email">電子郵件信箱</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="輸入E-mail" [(ngModel)]="user.email">
-      </div>
-      <div class="form-group">
         <span *ngIf="str !== 'null' && str !== null">
             <label for="email">驗證碼</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="輸入E-mail" [(ngModel)]="user.email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="輸入6位數驗證碼" [(ngModel)]="inputcode">
             <br>
-            <button type="submit" class="btn btn-default" (click)="find()">驗證</button>
+            <button type="submit" class="btn btn-default" (click)="verify()">驗證</button>
         </span>
       </div>
       <div style="align:right">
           <span *ngIf="str === 'null' || str === null">
+              <div class="form-group">
+                  <label for="nickname">姓名</label>
+                  <input type="text" class="form-control" id="nickname" name="nickname" placeholder="輸入您的姓名" [(ngModel)]="user.name">
+                </div>
+                <div class="form-group">
+                  <label for="email">電子郵件信箱</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="輸入E-mail" [(ngModel)]="user.email">
+                </div>
             <button type="submit" class="btn btn-default" (click)="find()">找回密碼</button>
             </span>
       </div>

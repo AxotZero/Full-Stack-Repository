@@ -27,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ImageMapComponent } from './image-map/image-map.component';
 import { ForgottenComponent } from './forgotten/forgotten.component';
+import { ResetComponent } from './reset/reset.component';
+import { WebmailComponent } from './webmail/webmail.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { ForgottenComponent } from './forgotten/forgotten.component';
     BlogPostviewComponent,
     ProfilePageComponent,
     ImageMapComponent,
-    ForgottenComponent
+    ForgottenComponent,
+    ResetComponent,
+    WebmailComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,8 @@ import { BlogPostviewComponent } from './blog-postview/blog-postview.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { ImageMapComponent } from './image-map/image-map.component';
 import { ForgottenComponent} from './forgotten/forgotten.component';
+import { ResetComponent } from './reset/reset.component';
+import { WebmailComponent } from './webmail/webmail.component';
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -28,12 +30,20 @@ const routes: Routes = [
       { path : '',
         component : IndexContentComponent
       },
+      {
+        path : 'reset',
+        component : ResetComponent
+      },
       { path : 'login',
         component : LoginComponent
       },
       {
         path : 'map',
         component : ImageMapComponent
+      },
+      {
+        path : 'webmail',
+        component : WebmailComponent
       },
       {
         path : 'forgotten',
