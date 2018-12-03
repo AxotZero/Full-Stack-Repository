@@ -138,12 +138,12 @@ export class DataService {
     this.ListProducts = [];
     for (let i = 0; i < 9; i++) {
       if (Number(this.Page) * 9 + i < this.CategoryProducts.length) {
-        this.GridProducts[i] = this.CategoryProducts[Number(this.Page) * 5 + i];
+        this.GridProducts[i] = this.CategoryProducts[Number(this.Page) * 9 + i];
       }
     }
     for (let i = 0; i < 5; i++) {
       if (Number(this.Page) * 5 + i < this.CategoryProducts.length) {
-        this.ListProducts[i] = this.CategoryProducts[Number(this.Page) * 9 + i];
+        this.ListProducts[i] = this.CategoryProducts[Number(this.Page) * 5 + i];
       }
     }
   }
