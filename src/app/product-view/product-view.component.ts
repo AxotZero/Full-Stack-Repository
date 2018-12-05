@@ -103,6 +103,16 @@ export class ProductViewComponent implements OnInit {
         product_id: e.id,
         quantity: this.Quantity
       };
+      const user_exp = this.dataService.User.exp;
+      if (e.level_id === 1) {
+        if (user_exp < 20000) { alert('你買不起啦，你層次太低 ~!');  return; }
+      } else if (e.level_id === 2) {
+        if (user_exp < 3000) { alert('你買不起啦，你層次太低 ~!'); return; }
+      } else if (e.level_id === 3) {
+        if (user_exp < 500) { alert('你買不起啦，你層次太低 ~!');  return; }
+      } else if (e.level_id === 4) {
+        if (user_exp < 100) { alert('你買不起啦，你層次太低 ~!'); return; }
+      }
       this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`

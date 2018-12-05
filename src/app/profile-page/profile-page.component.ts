@@ -17,10 +17,7 @@ export class ProfilePageComponent implements OnInit {
       Username : '',
       Password : '',
       Email : '',
-      Phone : '',
       Level: '',
-      Profession : '',
-      imgsrc: ''
     };
     const u = this.dataService.User;
     person.Username = u.name;
@@ -49,9 +46,7 @@ export class ProfilePageComponent implements OnInit {
     this.Person.Username = (<HTMLInputElement>document.querySelector('.Username .Edit')).value;
     this.Person.Password = (<HTMLInputElement>document.querySelector('.Password .Edit')).value;
     this.Person.Email = (<HTMLInputElement>document.querySelector('.Email .Edit')).value;
-    this.Person.Phone = (<HTMLInputElement>document.querySelector('.Phone .Edit')).value;
     this.Person.Level = (<HTMLInputElement>document.querySelector('.Level .Edit')).value;
-    this.Person.Profession = (<HTMLInputElement>document.querySelector('.Profession .Edit')).value;
     }
 
     // change value of edit mode

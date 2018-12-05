@@ -139,9 +139,6 @@ const routes: Routes = [
     ]
   },
   {
-    path : 'register', component : RegisterComponent
-  },
-  {
     path : 'profile/:userId',
     component : ProfilePageComponent,
   },

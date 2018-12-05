@@ -43,7 +43,17 @@ export class CatalogListComponent implements OnInit {
 
   addToCart(e) {
     if (this.authService.isLogin()) {
+      const user_exp = this.dataService.User.exp;
       const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
+      if (e.level_id === 1) {
+        if (user_exp < 20000) { alert('你買不起啦，你層次太低 ~!');  return; }
+      } else if (e.level_id === 2) {
+        if (user_exp < 3000) { alert('你買不起啦，你層次太低 ~!'); return; }
+      } else if (e.level_id === 3) {
+        if (user_exp < 500) { alert('你買不起啦，你層次太低 ~!');  return; }
+      } else if (e.level_id === 4) {
+        if (user_exp < 100) { alert('你買不起啦，你層次太低 ~!'); return; }
+      }
       // console.log(info);
       this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
         headers: {
