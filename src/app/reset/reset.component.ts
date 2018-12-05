@@ -18,12 +18,11 @@ export class ResetComponent implements OnInit {
   }
   reset() {
     this.user.email = localStorage.getItem('email');
-    this.http.post('http://localhost:8000/api/mailTo', this.user).subscribe(data => {
+    this.http.post('http://localhost:8000/api/resetpassword', this.user).subscribe(data => {
+      console.log(data);
   });
     alert('修改完成，請登入');
     this.router.navigate(['/login']);
-    console.log(this.user.password);
-    console.log(this.user.password_confirm);
     console.log(this.user.email);
   }
 }
