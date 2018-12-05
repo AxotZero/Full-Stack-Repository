@@ -15,17 +15,20 @@
   <div class="mail">
       <div class="container">
             <h1 class="page_title">重設密碼</h1>
-      <form id="msg" name="msg" method="post" action="">
+      <form id="msg" name="msg" method="post" action="" ngNativeValidate>
         <div class="form-group">
-            <label for="password">新密碼</label>
-            <input type="password" class="form-control" id="nickname" name="nickname" placeholder="輸入您的新密碼" [(ngModel)]="user.password">
+            <label  for="password">新密碼</label>
+            <input #psw="ngModel" type="password" class="form-control" id="nickname" name="nickname"
+            placeholder="輸入您的新密碼" [(ngModel)]="user.password" minlength="6" required>
         </div>
-        <div style="align:right">
+        <div >
           <div class="form-group">
             <label for="confirm">確認新密碼</label>
-    <input type="password" class="form-control" id="email" name="email" placeholder="再輸入一次您的新密碼" [(ngModel)]="user.password_confirm">
+            <input #pswf="ngModel" type="password" class="form-control" id="email" name="email"
+              placeholder="再輸入一次您的新密碼" [(ngModel)]="user.password_confirm" minlength="6" required>
           </div>
-              <button type="submit" class="btn btn-default" (click)="reset()">修改</button>
+          <button *ngIf="psw.valid && pswf.valid" type="submit" class="btn btn-default" (click)="reset()">修改</button>
+          <button *ngIf="!(psw.valid && pswf.valid)" type="submit" class="btn btn-default" >修改</button>
         </div>
         <br>
       </form>

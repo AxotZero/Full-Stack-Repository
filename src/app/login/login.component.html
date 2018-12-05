@@ -27,7 +27,7 @@
 					<strong>Password:</strong><sup class="surely">*</sup><br/>
           <input #password="ngModel" type="password" name="password" class="" value="" [(ngModel)]="user.password" minlength="6" required/>
           <br>
-					<a class="forgot" href="forgotten">Forgot Your Password?</a>
+					<a class="forgot" [routerLink]="['/forgotten']">Forgot Your Password?</a>
 				</div><!-- .password -->
 
 				<div class="remember">
