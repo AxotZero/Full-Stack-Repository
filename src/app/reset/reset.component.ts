@@ -25,10 +25,9 @@ export class ResetComponent implements OnInit {
       console.log(response);
       alert('Email or password is invalid !!');
     });
+
     alert('修改完成，請登入');
     this.router.navigate(['/login']);
-    console.log(this.user.password);
-    console.log(this.user.password_confirm);
     console.log(this.user.email);
   }
 }

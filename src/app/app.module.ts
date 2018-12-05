@@ -30,6 +30,7 @@ import { ForgottenComponent } from './forgotten/forgotten.component';
 import { ResetComponent } from './reset/reset.component';
 import { WebmailComponent } from './webmail/webmail.component';
 import { ShoppingOrderComponent } from './shopping-order/shopping-order.component';
+import { ADComponent } from './ad/ad.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { ShoppingOrderComponent } from './shopping-order/shopping-order.componen
     ForgottenComponent,
     ResetComponent,
     WebmailComponent,
-    ShoppingOrderComponent
+    ShoppingOrderComponent,
+    ADComponent
   ],
   imports: [
     BrowserModule,
