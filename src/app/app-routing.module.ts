@@ -23,6 +23,7 @@ import { ImageMapComponent } from './image-map/image-map.component';
 import { ForgottenComponent} from './forgotten/forgotten.component';
 import { ResetComponent } from './reset/reset.component';
 import { WebmailComponent } from './webmail/webmail.component';
+import { ShoppingOrderComponent } from './shopping-order/shopping-order.component';
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -96,6 +97,10 @@ const routes: Routes = [
       {
         path : 'shopping-cart',
         component : ShoppingCartComponent
+      },
+      {
+        path : 'shopping-order',
+        component : ShoppingOrderComponent
       },
       {
         path : 'checkout',

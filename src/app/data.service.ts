@@ -12,6 +12,7 @@ export class DataService {
   ListProducts = [];
   CategoryProducts = [];
   shoppingCart = [];
+  shoppingOrder = [];
   CatalogNumber = [0, 0, 0, 0, 0, 0, 0];
   User;
   Category;
@@ -20,6 +21,7 @@ export class DataService {
   OrderbyKey = 'Name';
   OrderbyMethod = 'up';
   totalPrice = 0;
+  ordertotal = 0;
 
 
 
@@ -53,13 +55,29 @@ export class DataService {
         this.User = data; console.log(this.User);
         this.getShoppingCart().subscribe( (item: any) => {
           this.shoppingCart = item;
-            this.totalPrice = 0;
-            this.shoppingCart.forEach(element => {
-              this.totalPrice += element.total_price;
-            });
+          this.totalPrice = 0;
+          this.shoppingCart.forEach(element => {
+            this.totalPrice += element.total_price;
+          });
+        });
+        this.getOrder().subscribe( (order: any) => {
+          this.shoppingOrder = order.orders;
+          this.ordertotal = 0;
+          this.shoppingOrder.forEach(element => {
+            this.ordertotal += element.total_price;
+          });
         });
       });
     }
+  }
+  getTotalPrice() {
+    this.getShoppingCart().subscribe( (item: any) => {
+      this.shoppingCart = item;
+      this.totalPrice = 0;
+      this.shoppingCart.forEach(element => {
+        this.totalPrice += element.total_price;
+      });
+    });
   }
 
   getProducts() {
@@ -83,7 +101,11 @@ export class DataService {
 
   getOrder() {
     return this.httpClient
-      .get(`http://localhost:8000/api/orders/${this.User.id}`);
+      .get(`http://localhost:8000/api/orders/${this.User.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
   }
 
   createOrder(productIds) {

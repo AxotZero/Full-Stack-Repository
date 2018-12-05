@@ -7,17 +7,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 declare let $: any;
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: 'app-shopping-order',
+  templateUrl: './shopping-order.component.html',
+  styleUrls: ['./shopping-order.component.css']
 })
-export class ShoppingCartComponent implements OnInit {
 
-  get shoppingCart() {
-    return this.dataService.shoppingCart;
+export class ShoppingOrderComponent implements OnInit {
+  get shoppingOrder() {
+    return this.dataService.shoppingOrder;
   }
 
-  get totalPrice () {
+  get totalPrice() {
     return this.dataService.totalPrice;
   }
 
@@ -33,16 +33,16 @@ export class ShoppingCartComponent implements OnInit {
     }
 
     getItem() {
-      this.dataService.getShoppingCart().subscribe( (item: any) => {
-        this.dataService.shoppingCart = item;
-        this.dataService.totalPrice = 0;
-        item.forEach(element => {
-          this.dataService.totalPrice += element.total_price;
+      this.dataService.getOrder().subscribe( (item: any) => {
+        this.dataService.shoppingOrder = item.orders;
+        this.dataService.ordertotal = 0;
+        this.dataService.shoppingOrder.forEach(element => {
+          this.dataService.ordertotal += element.total_price;
         });
       });
     }
-    ngOnInit() {
-      this.getItem();
+  ngOnInit() {
+    this.getItem();
       setTimeout(() => {
       $('#list_product').carouFredSel({
           prev: '#prev_c1',
@@ -56,29 +56,14 @@ export class ShoppingCartComponent implements OnInit {
       }, 1);
     }
 
-  deleteShoppingCart(id) {
-    console.log('delete');
-    this.httpClient.delete(`http://localhost:8000/api/shopping_carts/${id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    }).subscribe(data => {console.log(data); this.getItem(); });
-  }
-  update(index, quantity) {
-    if (quantity < 1 || quantity % 1 !== 0) {
-      quantity = 1;
+  deleteShoppingOrder(id) {
+  console.log('delete');
+  this.httpClient.delete(`http://localhost:8000/api/orders/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
-    this.getItem();
-    const ob = {
-      user_id: this.dataService.User.id,
-      product_id: this.shoppingCart[index].product_id,
-      quantity: quantity } ;
-    this.httpClient.post('http://localhost:8000/api/shopping_carts/update', ob, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    }).subscribe(data => {console.log(data); this.getItem(); });
-  }
+  }).subscribe(data => {console.log(data); this.getItem(); });
+}
 
   createOrder() {
     console.log('createOrder\n' + 'this.');
@@ -110,13 +95,16 @@ export class ShoppingCartComponent implements OnInit {
     }).subscribe((data: any) => { alert(data.message); });
     this.dataService.shoppingCart = [];
     this.dataService.totalPrice = 0;
-     this.router.navigate(['/']);
-  }
-  test() {
-    this.dataService.createOrder([555, 666]).subscribe(
-      data => {console.log(data); }
-    );
-  }
+    }
+    test() {
+      this.dataService.createOrder([555, 666]).subscribe(
+        data => {console.log(data); }
+      );
+    }
+    is_check(n) {
+      if (n === 0) {
+        return '處理中';
+      }
+      return '以結單';
+    }
 }
-
-

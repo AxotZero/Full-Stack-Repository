@@ -107,7 +107,11 @@ export class ProductViewComponent implements OnInit {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
-      }).subscribe((data: any) => {if ( data.success) { alert('Adding Successfully'); }});
+      }).subscribe((data: any) => {
+        if ( data.success) {
+          alert('Adding Successfully');
+          this.dataService.getTotalPrice();
+        }});
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);

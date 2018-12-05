@@ -1,0 +1,49 @@
+<section id="main" class="entire_width">
+  <div class="container_12">
+     <div class="grid_12">
+     <h1 class="page_title">Shopping Order</h1>
+
+     <table class="cart_product">
+      <tr>
+       <th class="order id">Order ID</th>
+       <th class="bg name">Products</th>
+       <!-- <th class="edit"> </th> -->
+       <th class="price">Address</th>
+       <th class="bg name">PhoneNumber</th>
+       <th class="total_price">Total</th>
+       <th class="bg name">Is Checked</th>
+       <th class="bg close">X</th>
+      </tr>
+      <ng-container *ngFor="let order of shoppingOrder; let i = index">
+        <tr>
+        <th class="bg name">{{order.order_id}}></th>
+        <table class="cart_product">
+          <ng-container *ngFor="let pro of order.products; let i2 = index">
+            <tr class="bg name">
+              <th>{{pro.name}}</th>
+              <th>*{{pro.quantity}}</th>
+              <th>subtotal： ${{pro.total_price}}.00</th>
+            </tr>
+          </ng-container>
+        </table>
+        <th class="bg name">{{order.address}}</th>
+        <th class="subtotal">{{order.phone_number}}</th>
+        <th class="bg name">{{order.total_price}}</th>
+        <th class="subtotal">{{is_check(order.is_checked)}}</th>
+        <!-- <td class="edit"><a title="Edit" href="#">Edit</a></td> -->
+        <td class="bg close"><a title="close" class="close" (click)="deleteShoppingOrder(order.order_id)"></a></td>
+      </tr>
+      </ng-container>
+      <tr>
+      </tr>
+     </table>
+     </div><!-- .grid_12 -->
+
+     <div class="clear"></div>
+
+      <div class="clear"></div>
+    </div><!-- #content_bottom -->
+    <div class="clear"></div>
+</section><!-- #main -->
+
+<div class ="clear"></div>

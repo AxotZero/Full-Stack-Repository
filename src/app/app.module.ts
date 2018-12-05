@@ -29,7 +29,7 @@ import { ImageMapComponent } from './image-map/image-map.component';
 import { ForgottenComponent } from './forgotten/forgotten.component';
 import { ResetComponent } from './reset/reset.component';
 import { WebmailComponent } from './webmail/webmail.component';
-
+import { ShoppingOrderComponent } from './shopping-order/shopping-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +57,8 @@ import { WebmailComponent } from './webmail/webmail.component';
     ImageMapComponent,
     ForgottenComponent,
     ResetComponent,
-    WebmailComponent
+    WebmailComponent,
+    ShoppingOrderComponent
   ],
   imports: [
     BrowserModule,
