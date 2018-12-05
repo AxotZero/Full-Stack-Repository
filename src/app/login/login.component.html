@@ -13,19 +13,19 @@
     </div><!-- .grid_6 -->
 
 		<div class="grid_6">
-			<form class="registed">
-				<h2>Registed Ninjas</h2>
+			<form class="registed" ngNativeValidate>
+				<h2>Ninja</h2>
 
 				<p>If you are a Ninja, please log in.</p>
 
 				<div class="User">
 					<strong>Your Email:</strong><sup class="surely">*</sup><br/>
-					<input type="email" name="email" class="" value="" [(ngModel)]="user.email"/>
+					<input #email="ngModel" type="email" name="email" class="" value="" [(ngModel)]="user.email" required/>
 				</div><!-- .email -->
 
 				<div class="password">
 					<strong>Password:</strong><sup class="surely">*</sup><br/>
-          <input type="password" name="password" class="" value="" [(ngModel)]="user.password"/>
+          <input #password="ngModel" type="password" name="password" class="" value="" [(ngModel)]="user.password" minlength="6" required/>
           <br>
 					<a class="forgot" href="forgotten">Forgot Your Password?</a>
 				</div><!-- .password -->
@@ -36,7 +36,8 @@
 				</div><!-- .remember -->
 
 				<div class="submit">
-					<input type="submit" value="Login" (click)="login()"/>
+          <input *ngIf="password.valid && email.valid" type="submit" value="Login" (click)="login()"/>
+          <input *ngIf="!(password.valid && email.valid)" type="submit" value="Login"/>
 					<sup class="surely">*</sup><span>Required Field</span>
 				</div><!-- .submit -->
 			</form><!-- .registed -->

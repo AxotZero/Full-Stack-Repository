@@ -12,27 +12,28 @@
         </div><!-- .grid_6 -->
 
         <div class="grid_6">
-            <form class="registed">
+            <form class="registed" ngNativeValidate>
                 <h2>Regist as a Ninja</h2>
                 <div class="User">
                   <strong>Your Name:</strong><sup class="surely">*</sup><br/>
-                  <input type="text" name="name" class="" value="" [(ngModel)]="user.name">
+                  <input #name="ngModel" type="text" name="name" class="" value="" [(ngModel)]="user.name" minlength="3" required>
                 </div>
                 <div class="email">
                   <strong>Email Adress:</strong><sup class="surely">*</sup><br/>
-                  <input type="email" name="Email" class="" value="" [(ngModel)]="user.email">
+                  <input #email="ngModel" type="email" name="Email" class="" value="" [(ngModel)]="user.email"  required>
                 </div><!-- .email -->
                 <div class="password">
                   <strong>Password:</strong><sup class="surely">*</sup><br/>
-                  <input type="password" name="password" class="" value="" [(ngModel)]="user.password">
+                  <input #psw="ngModel" type="password" name="password" class="" value="" [(ngModel)]="user.password" minlength="6" required>
                 </div><!-- .password -->
                 <div class="password">
                   <strong>Password Confirmation:</strong><sup class="surely">*</sup><br/>
-                  <input type="password" name="password_confirm" class="" value="" [(ngModel)]="user.password_confirmation"/>
+                  <input #pswf="ngModel" type="password" name="password_confirm" class="" value="" [(ngModel)]="user.password_confirmation" minlength="6" required/>
                 </div><!-- .password -->
 
                 <div class="submit">
-                  <input type="submit" value="Create" (click)="register()"/>
+                  <input *ngIf="email.valid && name.valid && psw.valid && pswf.valid" type="submit" value="Login" (click)="register()"/>
+                  <input *ngIf="!(email.valid && name.valid && psw.valid && pswf.valid)" type="submit" value="Login"/>
                 </div><!-- .submit -->
             </form><!-- .registed -->
         </div><!-- .grid_6 -->

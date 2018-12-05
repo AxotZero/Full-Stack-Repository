@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     // 帳號密碼的檢查
+
     this.authService.login(this.user).subscribe((data: any) => {
       if (data.token) {
         localStorage.setItem('token', data.token);
