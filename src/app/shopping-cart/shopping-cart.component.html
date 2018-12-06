@@ -20,7 +20,7 @@
         <!-- <td class="edit"><a title="Edit" href="#">Edit</a></td> -->
         <td class="price">${{item.price}}.00</td>
         <td class="bg qty"><input type="text" name="" [(ngModel)]="item.quantity"
-          (change)="update(i, item.quantity)"/></td>
+          (change)="update(item.id, item.quantity)"/></td>
         <td class="subtotal">${{item.total_price}}.00</td>
         <td class="bg close"><a title="close" class="close" (click)="deleteShoppingCart(item.shoppingcart_id)"></a></td>
       </tr>

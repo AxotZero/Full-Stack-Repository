@@ -27,6 +27,7 @@ export class ProductViewComponent implements OnInit {
     this.init();
   }
   ngOnInit() {
+    this.init();
     setTimeout(() => {
     $('#list_product').carouFredSel({
         prev: '#prev_c1',

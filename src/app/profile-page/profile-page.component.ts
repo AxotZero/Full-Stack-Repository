@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -39,19 +40,14 @@ export class ProfilePageComponent implements OnInit {
   }
 
   buttonClick() {
-
+    this.router.navigate(['/shopping-order']);
   }
 
 
   constructor(public dataService: DataService,
-              private httpClient: HttpClient) {  }
+              private httpClient: HttpClient,
+              private router: Router) {  }
 
   ngOnInit() {
   }
-
-  deleteOrder(id) {
-    return this.httpClient.delete('http://localhost:8000/api/orders', id);
-  }
-
-
 }

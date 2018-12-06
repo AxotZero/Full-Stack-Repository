@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { isNumber } from 'util';
 import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
@@ -27,6 +26,10 @@ export class DataService {
 
   constructor(private httpClient: HttpClient,
     private auth: AuthService) {
+      // 獲取使用者購物車資訊
+    if (this.auth.isLogin()) {
+      this.getUserInfo();
+    }
     // 獲取各項商品列表資訊
     this.httpClient.get('http://localhost:8000/api/products').subscribe
     ((data: any) => {
@@ -37,39 +40,43 @@ export class DataService {
         if (this.SearchFlag) {
           this.search(this.Category);
         }
-      }, 10);
+      }, 50);
     });
     // 查看是否為分類頁面
     setTimeout(() => {
       if (!this.SearchFlag) {
         this.ChangeCategory(this.Category);
       }
-    }, 10);
-    // 獲取使用者購物車資訊
-    if (this.auth.isLogin()) {
-      this.httpClient.get('http://localhost:8000/api/me', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }).subscribe(data => {
-        this.User = data; console.log(this.User);
-        this.getShoppingCart().subscribe( (item: any) => {
-          this.shoppingCart = item;
-          this.totalPrice = 0;
-          this.shoppingCart.forEach(element => {
-            this.totalPrice += element.total_price;
-          });
-        });
-        this.getOrder().subscribe( (order: any) => {
-          this.shoppingOrder = order.orders;
-          this.ordertotal = 0;
-          this.shoppingOrder.forEach(element => {
-            this.ordertotal += element.total_price;
-          });
+    }, 50);
+
+  }
+
+  getUserInfo() {
+    this.httpClient.get('http://localhost:8000/api/me', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe(data => {
+      this.User = data;
+      this.getShoppingCart().subscribe( (item: any) => {
+        this.shoppingCart = item;
+        this.totalPrice = 0;
+        this.shoppingCart.forEach(element => {
+          this.totalPrice += element.total_price;
         });
       });
-    }
+      this.getOrder().subscribe( (order: any) => {
+        this.shoppingOrder = order.orders;
+        this.ordertotal = 0;
+        this.shoppingOrder.forEach(element => {
+          this.ordertotal += element.total_price;
+        });
+      });
+    });
   }
+
+
+
   getTotalPrice() {
     this.getShoppingCart().subscribe( (item: any) => {
       this.shoppingCart = item;

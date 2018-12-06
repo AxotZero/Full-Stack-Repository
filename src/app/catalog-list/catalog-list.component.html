@@ -5,7 +5,7 @@
       <div class="grid_3">
         <img class="sale" src="images/new.png" alt="New"/>
         <div class="prev">
-          <a  [routerLink]="['/catalog/product-view', i]"><img [src]="'http://localhost:8000/' + item.file_path" alt="" title="" style="width:100%"/></a>
+          <a  [routerLink]="['/catalog/product-view', item.id]"><img [src]="'http://localhost:8000/' + item.file_path" alt="" title="" style="width:100%"/></a>
         </div><!-- .prev -->
       </div><!-- .grid_3 -->
 
@@ -21,19 +21,16 @@
             <span>1 REVIEW(S)</span>
           </div>
           <p>{{item.description}}.</p>
-          <a class="more" href="/product_page.html">Learn More</a>
+          <a class="more" [routerLink]="['/catalog/product-view',item.id]">Learn More</a>
         </div><!-- .entry_content -->
       </div><!-- .grid_4 -->
 
       <div class="grid_2">
         <div class="cart">
           <div class="price">
-            <div class="price_new">{{item.price}}.00兩</div>
-            <div class="price_old">725.00兩</div>
+            <div class="price_new">${{item.price}}.00兩</div>
           </div>
-          <a class="bay" (click)="addToCart(item)">學習忍術</a>
-          <a href="#" class="obn"></a>
-          <a href="#" class="like"></a>
+          <a class="bay" (click)="addToCart(item)">Add To Cart</a>
         </div><!-- .cart -->
       </div><!-- .grid_2 -->
 
