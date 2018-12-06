@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
         this.http.get('http://localhost:8000/api/me', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`}
-        }).subscribe(user => {this.dataService.User = user; });
+        }).subscribe(user => {
+          this.dataService.User = user;
+          window.open('https://www.instagram.com', 'newname', '', true); });
       } else {
         alert('fail');
       }

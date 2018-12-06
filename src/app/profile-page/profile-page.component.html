@@ -15,19 +15,12 @@
   <form method="post">
     <div class="row">
       <div class="col-md-4">
-        <div class="profile-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-          <div class="file btn btn-lg btn-primary">
-            Change Photo
-            <input type="file" name="file" accept="image/*, image/heic, image/heif"/>
-          </div>
-        </div>
       </div>
       <div class="col-md-6">
         <div class="profile-head">
-          <h5>
+          <h2>
             {{Person?.Username}}
-          </h5>
+          </h2>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -36,11 +29,8 @@
         </div>
       </div>
         <div class="col-md-2">
-          <button *ngIf="!editMode" class="btn btn-sm btn-primary" (click)="buttonClick()">
-            Edit Profile
-          </button>
-          <button *ngIf="editMode" class="btn btn-sm btn-primary" (click)="buttonClick()">
-             Save
+          <button class="btn btn-sm btn-primary" (click)="buttonClick()">
+            Order History
           </button>
         </div>
     </div>
@@ -53,21 +43,12 @@
                       <label>Name</label>
                     </div>
                       <div class="col-md-6 Username">
-                        <ng-container *ngIf="editMode == false">
                           <input
                             value="{{Person?.Username}}"
                             type="text"
                             readonly
                             style="color : #0062cc">
-                        </ng-container>
-                        <ng-container *ngIf="editMode == true">
-                            <input
-                            class = 'Edit'
-                            placeholder="{{Person?.Username}}"
-                            type="text"
-                            style="color : black"
-                            >
-                        </ng-container>
+
                       </div>
                   </div>
                   <div class="row">
@@ -75,21 +56,11 @@
                           <label>Email</label>
                       </div>
                       <div class="col-md-6 Email">
-                        <ng-container *ngIf="editMode == false">
                             <input
                             value="{{Person?.Email}}"
                             type="text"
                             readonly
                             style="color : #0062cc">
-                        </ng-container>
-                        <ng-container *ngIf="editMode == true">
-                            <input
-                            class = 'Edit'
-                            placeholder="{{Person?.Email}}"
-                            type="text"
-                            style="color : black"
-                            >
-                        </ng-container>
                       </div>
                   </div>
                   <div class="row">
@@ -97,21 +68,23 @@
                           <label>Level</label>
                       </div>
                       <div class="col-md-6 Level">
-                        <ng-container *ngIf="editMode == false">
                             <input
                             value="{{Person?.Level}}"
                             type="text"
                             readonly
                             style="color : #0062cc">
-                        </ng-container>
-                        <ng-container *ngIf="editMode == true">
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>EXP</label>
+                      </div>
+                      <div class="col-md-6 Level">
                             <input
-                            class = 'Edit'
-                            placeholder="{{Person?.Level}}"
+                            value="{{Person?.exp}}"
                             type="text"
-                            style="color : black"
-                            >
-                        </ng-container>
+                            readonly
+                            style="color : #0062cc">
                       </div>
                   </div>
                 </div>

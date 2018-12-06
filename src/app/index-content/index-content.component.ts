@@ -15,7 +15,6 @@ export class IndexContentComponent implements OnInit {
   constructor(private serviceService: ServiceService) {}
   ngOnInit() {
     // tslint:disable-next-line:max-line-length
-    window.open('https://www.instagram.com', 'newname', '', true);
     setTimeout(() => {
       $('#slider').carouFredSel({
         prev: '.slidprev',

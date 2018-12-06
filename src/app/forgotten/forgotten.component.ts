@@ -40,12 +40,12 @@ export class ForgottenComponent implements OnInit {
     localStorage.setItem('verifyCode', this.verifyCode);
     this.str = localStorage.getItem('verifyCode');
     this.verifyCode = this.str;
-    console.log(this.str);
     this.router.navigate(['/forgotten']);
     if (this.str === null || this.str === 'null') {
       alert('Account not Exist !!');
     } else {
       localStorage.setItem('email', this.user.email);
+      alert('請至您的email取得驗證碼');
     }
     });
   }

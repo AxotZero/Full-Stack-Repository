@@ -105,6 +105,6 @@ export class ShoppingOrderComponent implements OnInit {
       if (n === 0) {
         return '處理中';
       }
-      return '以結單';
+      return '已結單';
     }
 }

@@ -9,17 +9,16 @@ import { DataService } from '../data.service';
 })
 export class ProfilePageComponent implements OnInit {
 
-
-  editMode = false;
-
   get Person() {
     const person = {
       Username : '',
       Password : '',
       Email : '',
       Level: '',
+      exp: 0,
     };
     const u = this.dataService.User;
+    if (u === undefined) { return; }
     person.Username = u.name;
     person.Email = u.email;
     let n = '';
@@ -28,6 +27,7 @@ export class ProfilePageComponent implements OnInit {
     if (u.exp < 3000) {n = '中忍'; } else
     if (u.exp < 20000) {n = '上忍'; } else {n = '火影'; }
     person.Level = n;
+    person.exp = u.exp;
     return person;
   }
   get Order() {
@@ -39,18 +39,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   buttonClick() {
-    // console.log('button clicked!');
 
-    if (this.editMode) {
-      // save value of username
-    this.Person.Username = (<HTMLInputElement>document.querySelector('.Username .Edit')).value;
-    this.Person.Password = (<HTMLInputElement>document.querySelector('.Password .Edit')).value;
-    this.Person.Email = (<HTMLInputElement>document.querySelector('.Email .Edit')).value;
-    this.Person.Level = (<HTMLInputElement>document.querySelector('.Level .Edit')).value;
-    }
-
-    // change value of edit mode
-    this.editMode = !this.editMode;
   }
 
 

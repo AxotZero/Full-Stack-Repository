@@ -31,7 +31,7 @@
   <div class="pagination">
    <ul>
     <li class="prev"><a (click)="changePage(Page - 1)" [routerLink]="changeLink(Page - 1)">←</a></li>
-    <li *ngFor="let item of [].constructor(HowManyPages) let i = index"
+    <li *ngFor="let item of [].constructor(HowManyPages); let i = index"
     [ngClass]="{curent: pageActive === (i+1) }"
     (click)="changePage(i)"><a [routerLink]="changeLink(i)" >{{i + 1}}</a></li>
     <li class="next"><a (click)="changePage(Page + 1)" [routerLink]="changeLink(Page + 1)">→</a></li>
