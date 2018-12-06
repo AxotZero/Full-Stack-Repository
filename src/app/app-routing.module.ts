@@ -25,6 +25,8 @@ import { ResetComponent } from './reset/reset.component';
 import { WebmailComponent } from './webmail/webmail.component';
 import { ShoppingOrderComponent } from './shopping-order/shopping-order.component';
 import { ADComponent } from './ad/ad.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 const routes: Routes = [
   {
     path : '', component : LayoutComponent,
@@ -142,6 +144,10 @@ const routes: Routes = [
   {
     path : 'ad',
     component : ADComponent,
+  },
+  {
+    path : 'about-us',
+    component : AboutUsComponent,
   },
   {
     path : 'profile/:userId',

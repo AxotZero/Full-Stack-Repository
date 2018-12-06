@@ -13,7 +13,7 @@ declare let $: any;
 })
 
 export class ShoppingOrderComponent implements OnInit {
-  get shoppingOrder() {
+    get shoppingOrder() {
     return this.dataService.shoppingOrder;
   }
 
