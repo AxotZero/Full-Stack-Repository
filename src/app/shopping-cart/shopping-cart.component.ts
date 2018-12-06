@@ -70,8 +70,7 @@ export class ShoppingCartComponent implements OnInit {
     }
     this.getItem();
     const ob = {
-      user_id: this.dataService.User.id,
-      product_id: this.shoppingCart[index].product_id,
+      shoppingcart_id: index,
       quantity: quantity } ;
     this.httpClient.post('http://localhost:8000/api/shopping_carts/update', ob, {
       headers: {

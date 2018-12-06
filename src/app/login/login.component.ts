@@ -28,12 +28,10 @@ export class LoginComponent implements OnInit {
       if (data.token) {
         localStorage.setItem('token', data.token);
         this.router.navigate(['/']);
-        this.http.get('http://localhost:8000/api/me', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`}
-        }).subscribe(user => {
-          this.dataService.User = user;
-          window.open('https://www.instagram.com', 'newname', '', true); });
+        this.dataService.getUserInfo();
+           window.open('https://www.instagram.com', 'newname', 'width=1000,height=1000', true);
+           window.document.body.scrollTop = 0;
+    window.document.documentElement.scrollTop = 0;
       } else {
         alert('fail');
       }

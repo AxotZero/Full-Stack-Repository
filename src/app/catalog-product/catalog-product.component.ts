@@ -33,7 +33,8 @@ export class CatalogProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log('qq');
+    this.Active = 0;
+    this.pageActive = 1;
   }
   changeLink(i) {
     if (i >= 0 && i < this.HowManyPages) {
