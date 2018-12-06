@@ -11,5 +11,7 @@ export class ImageMapComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  ck() {
+    window.location.reload();
+  }
 }
