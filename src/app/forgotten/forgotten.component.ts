@@ -34,6 +34,7 @@ export class ForgottenComponent implements OnInit {
   }
   find() {
     // console.log(this.user);
+    if (this.user.name === '' || this.user.email.indexOf('@') === -1) { return; }
     this.http.post('http://localhost:8000/api/findpassword', this.user).subscribe(data => {
     this.verifyCode = data;
       // console.log(this.verifyCode);

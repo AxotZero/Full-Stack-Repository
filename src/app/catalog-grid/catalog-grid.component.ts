@@ -36,7 +36,7 @@ export class CatalogGridComponent implements OnInit {
               private authService: AuthService,
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
-    this.dataService.Page = Number(this.Index);
+    this.dataService.Page = this.Index;
     if (this.Search !== undefined) {
       this.dataService.SearchFlag = 1;
     }
@@ -52,11 +52,11 @@ export class CatalogGridComponent implements OnInit {
       if (e.level_id === 1) {
         if (user_exp < 20000) { alert('你買不起啦，你層次太低，你距離火影還差地遠勒~!');  return; }
       } else if (e.level_id === 2) {
-        if (user_exp < 3000) { alert('你買不起啦，你層次太低，你以為中忍很強是不是~!'); return; }
+        if (user_exp < 3000) { alert('你買不起啦，你層次太低，你可得先成為上忍才行~!'); return; }
       } else if (e.level_id === 3) {
-        if (user_exp < 500) { alert('你買不起啦，你層次太低，你不就只是個下忍 ~!');  return; }
+        if (user_exp < 500) { alert('你買不起啦，你層次太低，你連中忍都當不上，ㄏㄏ ~!');  return; }
       } else if (e.level_id === 4) {
-        if (user_exp < 100) { alert('你買不起啦，你層次太低，你連下忍都不是 ~!'); return; }
+        if (user_exp < 100) { alert('你買不起啦，你層次太低，你就連下忍都不是 ~!'); return; }
       }
       // console.log(info);
       this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {

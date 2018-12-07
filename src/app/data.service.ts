@@ -43,12 +43,11 @@ export class DataService {
       }, 50);
     });
     // 查看是否為分類頁面
-    setTimeout(() => {
-      if (!this.SearchFlag) {
-        this.ChangeCategory(this.Category);
-      }
-    }, 300);
-
+     setTimeout(() => {
+       if (!this.SearchFlag) {
+         this.ChangeCategory(this.Category);
+       }
+     }, 500);
   }
 
   getUserInfo() {
@@ -124,7 +123,8 @@ export class DataService {
   }
 
   ChangeCategory(num) {
-    if (this.Category === undefined ) { return; }
+    if (num === undefined ) { return; }
+    this.SearchFlag = 0;
     this.Category = num;
     this.Page = 0;
       this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
@@ -135,6 +135,7 @@ export class DataService {
   }
 
   ChangePage(num) {
+    if (num === undefined) {return; }
     this.Page = num;
     this.ShowProducts();
   }

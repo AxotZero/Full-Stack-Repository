@@ -3,19 +3,14 @@
 
   <div class="options">
    <div class="grid-list">
-    <a [ngClass]="{grid: true, curent: Active === 0}" [routerLink]="['./catalogGrid', Category, 0]" (click)="Active=0" ><span>img</span></a>
-    <a [ngClass]="{list: true, curent: Active === 1}" [routerLink]="['./catalogList', Category, 0]" (click)="Active=1"><span>img</span></a>
+    <a [ngClass]="{grid: true, curent: getUrl() === 0}" [routerLink]="['./catalogGrid', Category, 0]"  ><span>img</span></a>
+    <a [ngClass]="{list: true, curent: getUrl() === 1}" [routerLink]="['./catalogList', Category, 0]" ><span>img</span></a>
 
   </div><!-- .grid-list -->
 
 
    <div class="sort" style="float: right; padding-right: 20%">
     <span class="sort-by" style="float: left; padding-top: 5%">Sort By:  </span>
-    <!-- <select (onchange)="ChangeSortKey(this.value)">
-     <option value="Name">Name</option>
-     <option value="Price">Price</option>
-     <option value="Level">Level</option>
-    </select> -->
     <button class="sortButton" (click)="ChangeSortKey('Name')"> Name </button>
     <button class="sortButton" (click)="ChangeSortKey('Level')"> Level </button>
     <button class="sortButton" (click)="ChangeSortKey('Price')"> Price </button>

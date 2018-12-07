@@ -16,7 +16,7 @@ export class ProductViewComponent implements OnInit {
   Product;
   Quantity = 1;
   get Index() {
-    return Number(this.route.snapshot.params['i']);
+    return this.route.snapshot.params['i'];
   }
   relatedProducts = [{}];
   constructor(private route: ActivatedRoute,
@@ -28,45 +28,6 @@ export class ProductViewComponent implements OnInit {
   }
   ngOnInit() {
     this.init();
-    setTimeout(() => {
-    $('#list_product').carouFredSel({
-        prev: '#prev_c1',
-        next: '#next_c1',
-        scroll: 1,
-        auto: false,
-        swipe: {
-            onMouse: true,
-            onTouch: true}
-    });
-    $('#list_product2').carouFredSel({
-        prev: '#prev_c2',
-        next: '#next_c2',
-        scroll: 1,
-        auto: false,
-        swipe: {
-            onMouse: true,
-            onTouch: true}
-    });
-    $('#list_banners').carouFredSel({
-        prev: '#ban_prev',
-        next: '#ban_next',
-        scroll: 1,
-        auto: false,
-        swipe: {
-            onMouse: true,
-            onTouch: true}
-    });
-    $('#thumblist').carouFredSel({
-        prev: '#img_prev',
-        next: '#img_next',
-        scroll: 1,
-        auto: false,
-        circular: false,
-        swipe: {
-            onMouse: true,
-            onTouch: true}
-    });
-    }, 500);
   }
 
   change(n) {
@@ -86,9 +47,20 @@ export class ProductViewComponent implements OnInit {
       this.relatedProducts[1] = data[(this.Index - 2 + l) % l];
       this.relatedProducts[2] = data[(this.Index ) % l];
       this.relatedProducts[3] = data[(this.Index + 1) % l];
-    console.log(this.relatedProducts);
-
+      this.js();
     });
+  }
+
+  js() {
+    $('#list_product').carouFredSel({
+      prev: '#prev_c1',
+      next: '#next_c1',
+      scroll: 1,
+      auto: false,
+      swipe: {
+          onMouse: true,
+          onTouch: true}
+  });
   }
 
   addToCart(e) {

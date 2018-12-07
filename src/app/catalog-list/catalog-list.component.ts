@@ -32,7 +32,7 @@ export class CatalogListComponent implements OnInit {
               private authService: AuthService,
               private httpClient: HttpClient) {
     this.dataService.Category = this.attribute;
-    this.dataService.Page = Number(this.Index);
+    this.dataService.Page = this.Index;
     if (this.Search !== undefined) {
       this.dataService.SearchFlag = 1;
     }

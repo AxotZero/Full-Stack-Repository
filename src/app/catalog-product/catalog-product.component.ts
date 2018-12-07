@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-catalog-product',
@@ -11,19 +12,19 @@ export class CatalogProductComponent implements OnInit {
   Active = 0;
   pageActive = 1;
   sortM = '↑';
-  constructor(public dataService: DataService) { }
+
   get ResultsNumber() {
     return this.dataService.CategoryProducts.length;
   }
   get HowManyPages() {
     const n = this.ResultsNumber;
-    if (this.Active === 0) {
+    if (this.getUrl() === 0) {
       return parseInt ( String(n / 9), 10 ) + 1;
     }
     return parseInt ( String(n / 5), 10 ) + 1;
   }
   get Page() {
-    return this.dataService.Page;
+    return Number(this.dataService.Page);
   }
   get Category() {
     return this.dataService.Category;
@@ -32,19 +33,35 @@ export class CatalogProductComponent implements OnInit {
     return this.dataService.SearchFlag;
   }
 
+
+  constructor(public dataService: DataService, private route: ActivatedRoute ) { this.Active = 0; }
+
+  getUrl() {
+    if (window.location.href.indexOf('catalogGrid') !== -1) {  return 0; }
+    if (window.location.href.indexOf('catalogList') !== -1) {  return 1; }
+    return 2;
+  }
+
+
   ngOnInit() {
     this.Active = 0;
     this.pageActive = 1;
   }
+
+  changeActive(n) {
+    this.Active = n;
+    return this.changeLink(0);
+  }
+
   changeLink(i) {
     if (i >= 0 && i < this.HowManyPages) {
-      if ( this.Active === 0) {
+      if ( this.getUrl() === 0) {
         if (!this.Search) {
           return ['./catalogGrid', this.dataService.Category , i];
         } else {
           return ['./catalogGrid', this.dataService.Category , i, 'search'];
         }
-      } else {
+      } else if ( this.getUrl() === 1) {
         if (!this.Search) {
           return ['./catalogList', this.dataService.Category , i];
         } else {

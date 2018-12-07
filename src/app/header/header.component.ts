@@ -30,8 +30,8 @@ export class HeaderComponent implements OnInit {
   ChangeCategory(n) {
     window.document.body.scrollTop = 0;
     window.document.documentElement.scrollTop = 0;
-    this.router.navigate(['/catalog/catalogGrid/', n, 0]);
     this.dataService.ChangeCategory(n);
+    this.router.navigate(['/catalog/catalogGrid/', n, 0]);
   }
 
   checkout() {
@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
     });
   }
   search(searchElement) {
+    if (searchElement.trim() === '') {return; }
     this.router.navigate(['/catalog/catalogGrid/', searchElement, 0, 'search']);
     this.dataService.search(searchElement);
   }
