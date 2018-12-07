@@ -42,6 +42,22 @@ export class CatalogProductComponent implements OnInit {
     return 2;
   }
 
+  changeRender(n) {
+    if (window.location.href.indexOf('search') !== -1) {
+      if (n === 0) {
+        return ['./catalogGrid', this.Category, 0, 'search'];
+      } else {
+        return ['./catalogList', this.Category, 0, 'search'];
+      }
+    } else {
+      if ( n === 0) {
+        return ['./catalogGrid', this.Category, 0];
+      } else {
+        return ['./catalogList', this.Category, 0];
+      }
+    }
+  }
+
 
   ngOnInit() {
     this.Active = 0;

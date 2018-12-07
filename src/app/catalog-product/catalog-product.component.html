@@ -3,8 +3,8 @@
 
   <div class="options">
    <div class="grid-list">
-    <a [ngClass]="{grid: true, curent: getUrl() === 0}" [routerLink]="['./catalogGrid', Category, 0]"  ><span>img</span></a>
-    <a [ngClass]="{list: true, curent: getUrl() === 1}" [routerLink]="['./catalogList', Category, 0]" ><span>img</span></a>
+    <a [ngClass]="{grid: true, curent: getUrl() === 0}" [routerLink]="changeRender(0)"  ><span>img</span></a>
+    <a [ngClass]="{list: true, curent: getUrl() === 1}" [routerLink]="changeRender(1)" ><span>img</span></a>
 
   </div><!-- .grid-list -->
 
