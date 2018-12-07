@@ -8,24 +8,24 @@
          <div class="tt">
             <img src="images/map/1.png"  alt=""usemap="#map">
             <map name="map">
-                <area shape="circle" coords="112,59,60" [routerLink]="['../catalog/catalogGrid/6/0']" alt="Mercury" (click)="ck()">
-                <area shape="circle" coords="823,228,45" [routerLink]="['../catalog/catalogGrid/千鳥/0/search']" alt="Venus" (click)="ck()">
+                <area shape="circle" coords="112,59,60"  alt="Mercury" (click)="ck(6)">
+                <area shape="circle" coords="823,228,45" alt="Venus" (click)="search('千鳥')">
             </map>
         </div>
         <div class="tt">
             <img src="images/map/2.png" usemap="#map2">
               <map name="map2">
-                <area shape="circle" coords="159,170,20" [routerLink]="['../catalog/catalogGrid/13/0']" alt="Mercury" (click)="ck()">
-                <area shape="rect" coords=" 700 , 50 , 900 , 500" [routerLink]="['../catalog/catalogGrid/8/0']" (click)="ck()">
+                <area shape="circle" coords="159,170,20"  alt="Mercury" (click)="ck(13)">
+                <area shape="rect" coords=" 700 , 50 , 900 , 500" (click)="ck(8)">
               </map>
             </div>
 
           <div class="tt">
                 <img src="images/map/3.png" usemap="#map3">
                   <map name="map3">
-                    <area shape="rect" coords=" 60 , 20 , 420 , 450" [routerLink]="['../catalog/catalogGrid/9/0']" (click)="ck()">
-                    <area shape="rect" coords=" 700 , 20 , 1000 ,180" [routerLink]="['../catalog/catalogGrid/11/0']" (click)="ck()">
-                    <area shape="circle" coords="720,350,150" [routerLink]="['../catalog/catalogGrid/16/0']" (click)="ck()" alt="Mercury">
+                    <area shape="rect" coords=" 60 , 20 , 420 , 450"  (click)="ck(9)">
+                    <area shape="rect" coords=" 700 , 20 , 1000 ,180" (click)="ck(11)">
+                    <area shape="circle" coords="720,350,150" (click)="ck(16)" alt="Mercury">
                   </map>
               </div>
         </div><!-- .slider -->
