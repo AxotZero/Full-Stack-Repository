@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', data.token);
         this.router.navigate(['/']);
         this.dataService.getUserInfo();
-           window.open('https://www.instagram.com', 'newname', 'width=1000,height=1000', true);
+           window.open('https://event.beanfun.com/maplestory/E20181203/index.aspx', 'newname', 'width=1000,height=1000', true);
            window.document.body.scrollTop = 0;
     window.document.documentElement.scrollTop = 0;
       } else {

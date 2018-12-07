@@ -47,7 +47,7 @@ export class DataService {
       if (!this.SearchFlag) {
         this.ChangeCategory(this.Category);
       }
-    }, 50);
+    }, 300);
 
   }
 
@@ -124,7 +124,8 @@ export class DataService {
   }
 
   ChangeCategory(num) {
-    this.Category = Number(num);
+    if (this.Category === undefined ) { return; }
+    this.Category = num;
     this.Page = 0;
       this.httpClient.get(`http://localhost:8000/api/products/categories/${this.Category}`)
       .subscribe( (data: any) => {

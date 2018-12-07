@@ -51,7 +51,6 @@ export class CatalogProductComponent implements OnInit {
           return ['./catalogList', this.dataService.Category , i, 'search'];
         }
       }
-      // console.log(this.Search);
     }
   }
   changePage(i) {

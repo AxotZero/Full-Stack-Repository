@@ -46,13 +46,13 @@ export class CatalogListComponent implements OnInit {
       const user_exp = this.dataService.User.exp;
       const info = { user_id: this.dataService.User.id, product_id: e.id, quantity: 1};
       if (e.level_id === 1) {
-        if (user_exp < 20000) { alert('你買不起啦，你層次太低 ~!');  return; }
+        if (user_exp < 20000) { alert('你買不起啦，你層次太低，你距離火影還差地遠勒~!');  return; }
       } else if (e.level_id === 2) {
-        if (user_exp < 3000) { alert('你買不起啦，你層次太低 ~!'); return; }
+        if (user_exp < 3000) { alert('你買不起啦，你層次太低，你以為中忍很強是不是~!'); return; }
       } else if (e.level_id === 3) {
-        if (user_exp < 500) { alert('你買不起啦，你層次太低 ~!');  return; }
+        if (user_exp < 500) { alert('你買不起啦，你層次太低，你不就只是個下忍 ~!');  return; }
       } else if (e.level_id === 4) {
-        if (user_exp < 100) { alert('你買不起啦，你層次太低 ~!'); return; }
+        if (user_exp < 100) { alert('你買不起啦，你層次太低，你連下忍都不是 ~!'); return; }
       }
       // console.log(info);
       this.httpClient.post('http://localhost:8000/api/shopping_carts', info, {
@@ -67,16 +67,6 @@ export class CatalogListComponent implements OnInit {
     } else {
       alert('Please Login');
       this.router.navigate(['/login']);
-    }
-  }
-
-  convertLevel(id) {
-    switch (id) {
-      case 1: return 'S';
-      case 2: return 'A';
-      case 3: return 'B';
-      case 4: return 'C';
-      case 5: return 'D';
     }
   }
 

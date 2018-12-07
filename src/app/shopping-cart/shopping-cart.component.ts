@@ -72,7 +72,7 @@ export class ShoppingCartComponent implements OnInit {
     const ob = {
       shoppingcart_id: index,
       quantity: quantity } ;
-    this.httpClient.post('http://localhost:8000/api/shopping_carts/update', ob, {
+    this.httpClient.patch('http://localhost:8000/api/shopping_carts/update', ob, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

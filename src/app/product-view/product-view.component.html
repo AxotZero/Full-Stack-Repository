@@ -17,12 +17,14 @@
   <div class="entry_content">
     <div class="review">
       <span style="font-size: 15px">等級：</span>
-      <ng-container *ngFor="let item of [].constructor(6 - Product.level_id)">
-        <a class="plus"></a>
-      </ng-container>
-      <ng-container *ngFor="let item of [].constructor(Product.level_id - 1)">
+      <ng-container *ngIf="Product">
+        <a class="plus" *ngFor="let item of [].constructor(6 - Product?.level_id)"></a>
+        <ng-container *ngFor="let item of [].constructor(Product.level_id - 1)">
           <a></a>
       </ng-container>
+      </ng-container>
+
+      <span>分類：<strong>{{Product?.category}}</strong></span>
     </div>
     <p style="font-size: 15px">{{Product?.description}}</p>
     <div class="ava_price">
@@ -79,18 +81,17 @@
         <div class="prev">
           <a (click)="change(item.id)" ><img [src]="'http://localhost:8000/' + item.file_path" alt="" title="" /></a>
         </div><!-- .prev -->
-        <h3 class="title">{{item.name}}</h3>
-        <div class="cart">
+        <h3 class="title">{{item.name}}({{item.level}})</h3>
+        <div class="cart" style="position: relative">
           <div class="price">
             <div class="vert">
-              <div class="price_new">${{item.price}}.00</div>
-              <div class="price_old">$725.00</div>
+              <div class="price_new">${{item.price}}.00兩</div>
             </div>
           </div>
-          <a  class="obn"></a>
-          <a href="#" class="like"></a>
-          <a (click)="addToCart(item)" class="bay"></a>
-        </div><!-- .cart -->
+          <a class="add" (click)="addToCart(item)" style="position: absolute; right: 0">
+            Add To Cart
+          </a>
+        </div>
       </div><!-- .grid_3 -->
     </li>
     </ng-container>

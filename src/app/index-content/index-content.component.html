@@ -60,7 +60,7 @@
                 <a (click) = "changeIndex(i)"
                 [routerLink]="[ '/catalog/product-view', item.id ]" ><img [src]="'http://localhost:8000/' + item?.file_path" alt="" title="" style="width:100%"/></a>
               </div><!-- .prev -->
-              <h3 class="title">{{item.name}}({{convertLevel(item?.level_id)}})</h3>
+              <h3 class="title">{{item.name}}({{item?.level}})</h3>
               <div class="cart" style="position: relative">
                 <div class="price">
                 <div class="vert">
@@ -101,7 +101,7 @@
                       <a (click) = "changeIndex(i)" [routerLink]="[ '/catalog/product-view', item.id ]">
                         <img [src]="'http://localhost:8000/' + item?.file_path" alt="" title="" style="width:100%"/></a>
                     </div><!-- .prev -->
-                    <h3 class="title">{{item?.name}}({{convertLevel(item?.level_id)}})</h3>
+                    <h3 class="title">{{item?.name}}({{item?.level}})</h3>
                     <div class="cart" style="position: relative">
                       <div class="price">
                       <div class="vert">
@@ -163,7 +163,7 @@
             </div><!-- .lettel_description -->
             <br>
             <div class="send">
-              <button [routerLink]="[ '../webmail' ]" class="account">Send</button>
+              <button [routerLink]="[ '../webmail' ]" class="account" style="width: 100px">Send</button>
             </div>
           </div><!-- .newsletter -->
         </div><!-- .grid_4 -->

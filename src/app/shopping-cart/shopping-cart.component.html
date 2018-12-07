@@ -22,14 +22,14 @@
         <td class="bg qty"><input type="text" name="" [(ngModel)]="item.quantity"
           (change)="update(item.id, item.quantity)"/></td>
         <td class="subtotal">${{item.total_price}}.00</td>
-        <td class="bg close"><a title="close" class="close" (click)="deleteShoppingCart(item.shoppingcart_id)"></a></td>
+        <td class="bg close"><a title="close" class="close" (click)="deleteShoppingCart(item.id)"></a></td>
       </tr>
       </ng-container>
       <tr>
       </tr>
       <tr>
        <td colspan="7" class="cart_but">
-        <button class="continue"><span>icon</span>Continue Shopping</button>
+        <button class="continue" [routerLink]="['/']"><span>icon</span>Continue Shopping</button>
        </td>
       </tr>
      </table>

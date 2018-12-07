@@ -32,8 +32,8 @@
           <h3>My Account</h3>
           <nav class="f_menu">
             <ul>
-              <li><a [routerLink]="['/profile-view']">My Account</a></li>
-              <li><a [routerLink]="['/shopping-order']">Order History</a></li>
+              <li><a (click)="toMyAccount()">My Account</a></li>
+              <li><a (click)="toOrderHistory()">Order History</a></li>
             </ul>
           </nav><!-- .private -->
         </div><!-- .grid_3 -->
@@ -45,7 +45,7 @@
     <div class="f_info">
       <div class="container_12">
         <div class="grid_6">
-          <p class="copyright">© Breeze Store Theme, 2012</p>
+          <p class="copyright">© Breeze Store Theme, 2018</p>
         </div><!-- .grid_6 -->
 
         <div class="grid_6">
