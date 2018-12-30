@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { forEach } from '@angular/router/src/utils/collection';
+import { AdService } from '../ad.service';
 
 @Component({
   selector: 'app-catalog',
@@ -15,8 +15,13 @@ export class CatalogComponent implements OnInit {
     return this.dataService.CatalogNumber;
   }
 
+  get rotateAd() {
+    return this.adService.rotateAd;
+  }
+
   constructor(private router: Router,
-              public dataService: DataService) {
+              public dataService: DataService,
+              private adService: AdService) {
 
   }
   ngOnInit() {
@@ -27,5 +32,8 @@ export class CatalogComponent implements OnInit {
     window.document.documentElement.scrollTop = 0;
     this.router.navigate(['/catalog/catalogGrid/', n, 0]);
     this.dataService.ChangeCategory(n);
+  }
+  openAdd(link) {
+    window.open(link);
   }
 }

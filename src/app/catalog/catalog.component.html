@@ -26,13 +26,27 @@
            <li><a (click)="ChangeCategory(-11)" >血繼限界 <span>({{CatalogNumber[6]}})</span></a></li>
 				   <!-- <li class="last"><a href="#">Other <span>(135)</span></a></li> -->
 			    </ul>
-		     </nav><!-- .left_menu -->
-	      </aside><!-- #categories_nav -->
+         </nav><!-- .left_menu -->
+         <div class="grid_4 img_slid" id="products" style="width:100%; margin-left: 0">
+          <div class="preview slides_container" style="width:100%">
+            <div class="prev_bg" style="vertical-align: auto">
+              <a >
+                <img [src]="rotateAd[0]?.file_path"   title="" alt="" style="width:100%" (click)="openAdd(rotateAd[0]?.url)"/>
+              </a>
+            </div>
+          </div><!-- .prev -->
+        </div><!-- .grid_4 -->
+        </aside><!-- #categories_nav -->
+
        </div><!-- .sidebar -->
 
       <div class="clear"></div>
 
     </div><!-- .container_12 -->
+
+
   </section>
+
+
 
   <div class="clear"></div>

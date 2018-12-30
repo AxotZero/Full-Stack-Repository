@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AdService } from '../ad.service';
 declare let $: any;
 @Component({
   selector: 'app-index-content',
@@ -14,18 +15,19 @@ export class IndexContentComponent implements OnInit {
 
   easyProduct = [];
   strongProduct = [];
-
+  get sliderAd() {
+    return this.adService.sliderAd;
+  }
   constructor(private http: HttpClient,
             public dataService: DataService,
             private authService: AuthService,
-            private router: Router) {
+            private router: Router,
+            private adService: AdService) {
     this.getProduct();
   }
   ngOnInit() {
     this.getProduct();
     // tslint:disable-next-line:max-line-length
-
-
   }
 
   getProduct() {
@@ -110,5 +112,8 @@ export class IndexContentComponent implements OnInit {
       alert('Please Login');
       this.router.navigate(['/login']);
     }
+  }
+  openAdd(link) {
+    window.open(link);
   }
 }

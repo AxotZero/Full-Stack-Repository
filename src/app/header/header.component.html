@@ -91,15 +91,14 @@
           <li><a (click) = "ChangeCategory('10')">封印之術</a></li>
           <li><a (click) = "ChangeCategory('11')">仙術</a></li>
           <li class="parent">
-            <a >血繼限界</a>
+            <a >其他</a>
             <ul class="sub">
-                <li><a (click) = "ChangeCategory('12')">屬性融合</a></li>
-                <li><a (click) = "ChangeCategory('13')">瞳術</a></li>
-                <li><a (click) = "ChangeCategory('14')">血繼淘汰</a></li>
-                <li><a (click) = "ChangeCategory('15')">血繼網羅</a></li>
-              </ul>
+              <ng-container *ngFor="let item of othersCategory">
+                <li><a (click) = "ChangeCategory(item.id)">{{item.name}}</a></li>
+              </ng-container>
+            </ul>
           </li>
-          <li><a (click) = "ChangeCategory('16')">尾獸</a></li>
+          <li><a (click) = "ChangeCategory('16')">無屬性</a></li>
           <li class="parent">
             <a [routerLink]="[ '/map']">本月建議</a></li>
         </ul>

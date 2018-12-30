@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,9 @@ import { DataService } from '../data.service';
 export class HeaderComponent implements OnInit {
 
   searchElement = '';
+  get othersCategory() {
+    return this.dataService.othersCategory;
+  }
   get cartPrice() {
     return this.dataService.totalPrice;
   }
@@ -18,7 +22,9 @@ export class HeaderComponent implements OnInit {
     return this.authService.isLogin();
   }
 
-  constructor(private authService: AuthService, private router: Router, private dataService: DataService) {}
+  constructor(private authService: AuthService,
+    private router: Router,
+    private dataService: DataService) {}
 
   ngOnInit() {}
 

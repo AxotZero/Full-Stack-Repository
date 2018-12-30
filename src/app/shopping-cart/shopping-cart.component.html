@@ -15,7 +15,7 @@
       </tr>
       <ng-container *ngFor="let item of shoppingCart; let i = index">
         <tr>
-        <td class="images"><a href="/product_page.html"><img [src]="'http://localhost:8000/' + item.file_path" alt="Product 6"></a></td>
+        <td class="images"><a [routerLink]="['/catalog/product-view', item.product_id]"><img [src]="'http://localhost:8000/' + item.file_path" alt="Product 6"></a></td>
         <td class="bg name">{{item.product_name}}</td>
         <!-- <td class="edit"><a title="Edit" href="#">Edit</a></td> -->
         <td class="price">${{item.price}}.00</td>

@@ -4,17 +4,11 @@
         <div class="slidnext"><span>Next</span></div>
 
         <div id="slider">
-         <div class="slide">
-            <img src="images/content/slide1.jpg" alt="" title="" />
-          </div>
-         <div class="slide">
-            <img src="images/content/slideX2.jpg" alt="" title="" />
-          </div>
-
-          <div class="slide">
-            <img src="images/content/slideX3.jpg" alt="" title="" />
-
-          </div>
+          <ng-container *ngFor="let item of sliderAd">
+            <div class="slide" (click)="openAdd(item?.url)">
+                <img [src]="item?.file_path" alt="" title="" />
+            </div>
+          </ng-container>
         </div><!-- .slider -->
         <div class="clear"></div>
 

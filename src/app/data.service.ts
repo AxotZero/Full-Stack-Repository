@@ -21,7 +21,7 @@ export class DataService {
   OrderbyMethod = 'up';
   totalPrice = 0;
   ordertotal = 0;
-
+  othersCategory = [];
 
 
   constructor(private httpClient: HttpClient,
@@ -42,12 +42,17 @@ export class DataService {
         }
       }, 50);
     });
+    this.httpClient.get('http://localhost:8000/api/othersCategory').subscribe(
+       (data: any) => {
+         this.othersCategory = data;
+       }
+     );
     // 查看是否為分類頁面
      setTimeout(() => {
        if (!this.SearchFlag) {
          this.ChangeCategory(this.Category);
        }
-     }, 500);
+     }, 1000);
   }
 
   getUserInfo() {
@@ -73,8 +78,6 @@ export class DataService {
       });
     });
   }
-
-
 
   getTotalPrice() {
     this.getShoppingCart().subscribe( (item: any) => {
