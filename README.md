@@ -1,5 +1,8 @@
 # Project Overview
 Make a E-commerce website which sell Ninjutsu😂.
+- Frontend: AngularJS
+- Backend: Laravel
+
 
 Main Page
 
